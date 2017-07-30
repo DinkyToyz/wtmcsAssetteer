@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace WhatThe.Mods.CitiesSkylines.Asseteer
+namespace WhatThe.Mods.CitiesSkylines.Asseteer.Modder
 {
     /// <summary>
     /// Configuration file.

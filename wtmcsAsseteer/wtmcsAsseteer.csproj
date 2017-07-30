@@ -53,10 +53,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Reporter\AssetInfo.cs" />
     <Compile Include="Reporter\AssetReporter.cs" />
     <Compile Include="Modder\BuildingAsseteer.cs" />
     <Compile Include="Pieces\BuildingExtensions.cs" />
     <Compile Include="Modder\Configuration.cs" />
+    <Compile Include="Reporter\BuildingAssetInfo.cs" />
+    <Compile Include="Reporter\CitizenAssetInfo.cs" />
+    <Compile Include="Reporter\HtmlReportTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HtmlReportTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Reporter\HtmlReport.cs" />
+    <Compile Include="Reporter\PropAssetInfo.cs" />
+    <Compile Include="Reporter\TreeAssetInfo.cs" />
+    <Compile Include="Reporter\VehicleAssetInfo.cs" />
     <Compile Include="Util\Extensions.cs" />
     <Compile Include="Util\FileSystem.cs" />
     <Compile Include="Pieces\Global.cs" />
@@ -71,6 +83,15 @@
   <ItemGroup>
     <None Include="Build\PostBuild.cmd" />
     <None Include="Build\SteamBBCode2MarkDown.pl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reporter\HtmlReportTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>HtmlReportTemplate.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

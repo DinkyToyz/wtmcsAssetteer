@@ -1,4 +1,4 @@
-﻿namespace WhatThe.Mods.CitiesSkylines.Asseteer
+﻿namespace WhatThe.Mods.CitiesSkylines.Asseteer.Modder
 {
     /// <summary>
     /// Asset handler interface.

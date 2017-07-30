@@ -1,7 +1,7 @@
 ﻿using System;
 using ColossalFramework;
 
-namespace WhatThe.Mods.CitiesSkylines.Asseteer
+namespace WhatThe.Mods.CitiesSkylines.Asseteer.Modder
 {
     /// <summary>
     /// The building asset handler.
