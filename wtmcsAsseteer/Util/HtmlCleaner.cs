@@ -61,11 +61,6 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer
 
             html = html.Replace("\r\n", "\r").Replace('\n', '\r');
 
-            if (!this.KeepNewLines)
-            {
-                html = html.Replace('\r', ' ');
-            }
-
             int pos = 0;
 
             Match blockMatch = this.UncleanBlocks.Match(html);
@@ -126,6 +121,11 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer
         /// <returns>The clean HTML.</returns>
         private string CleanPart(string html)
         {
+            if (!this.KeepNewLines)
+            {
+                html = html.Replace('\r', ' ');
+            }
+
             html = this.RemovableWhiteSpace.Replace(html, "");
             html = this.CollapsibleSpace.Replace(html, " ");
             html = this.CollapsibleNewLines.Replace(html, "\r");
