@@ -36,7 +36,15 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer.Reporter
         /// <value>
         /// The prefab count.
         /// </value>
-        public static int PrefabCount => GetPrefabCount<BuildingInfo>();
+        public static int PrefabCount => PrefabHelper.Count<BuildingInfo>();
+
+        /// <summary>
+        /// Gets the type.
+        /// </summary>
+        /// <value>
+        /// The type.
+        /// </value>
+        public override string Type => "Building";
 
         /// <summary>
         /// Gets the lod material.
@@ -84,6 +92,44 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer.Reporter
         protected override Mesh GetMesh(PrefabInfo prefab)
         {
             return ((BuildingInfo)prefab).m_mesh;
+        }
+
+        /// <summary>
+        /// Initializes the current instance with values from specified prefab.
+        /// </summary>
+        /// <param name="prefab">The prefab.</param>
+        protected override void Initialize(PrefabInfo prefab)
+        {
+            base.Initialize(prefab);
+
+            if (!this.Initialized)
+            {
+                return;
+            }
+
+            BuildingInfo building = (BuildingInfo)prefab;
+
+            if (building.m_props != null)
+            {
+                for (int i = 0; i < building.m_props.Length; i++)
+                {
+                    if ((UnityEngine.Object)building.m_props[i].m_prop != (UnityEngine.Object)null)
+                    {
+                        bool propIs = building.m_props[i].m_prop.m_prefabInitialized ||
+                                      PrefabCollection<PropInfo>.FindLoaded(building.m_props[i].m_prop.gameObject.name) != null;
+
+                        this.ReferencedProps.Add(new Reference(Reference.ReferenceTypes.Prop, building.m_props[i].m_prop.gameObject.name, propIs));
+                    }
+
+                    if ((UnityEngine.Object)building.m_props[i].m_tree != (UnityEngine.Object)null)
+                    {
+                        bool treeIs = building.m_props[i].m_tree.m_prefabInitialized ||
+                                      PrefabCollection<TreeInfo>.FindLoaded(building.m_props[i].m_tree.gameObject.name) != null;
+
+                        this.ReferencedTrees.Add(new Reference(Reference.ReferenceTypes.Tree, building.m_props[i].m_tree.gameObject.name, treeIs));
+                    }
+                }
+            }
         }
     }
 }

@@ -92,5 +92,43 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer
         {
             return text.ToString().ConformNewlines();
         }
+
+        /// <summary>
+        /// Escapes the specified text fro HTML.
+        /// </summary>
+        /// <param name="text">The text.</param>
+        /// <returns>The escaped text.</returns>
+        public static string HtmlEscape(this string text)
+        {
+            StringBuilder escaped = new StringBuilder(text.Length);
+
+            for (int i = 0; i < text.Length; i++)
+            {
+                switch (text[i])
+                {
+                    case '<':
+                        escaped.Append("&lt;");
+                        break;
+
+                    case '>':
+                        escaped.Append("&gt;");
+                        break;
+
+                    case '&':
+                        escaped.Append("&amp;");
+                        break;
+
+                    case '"':
+                        escaped.Append("&quot");
+                        break;
+
+                    default:
+                        escaped.Append(text[i]);
+                        break;
+                }
+            }
+
+            return escaped.ToString();
+        }
     }
 }

@@ -1,11 +1,10 @@
-﻿using System;
+﻿using ColossalFramework.Plugins;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
-using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
-using ColossalFramework.Plugins;
 
 namespace WhatThe.Mods.CitiesSkylines.Asseteer
 {
@@ -64,7 +63,7 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer
         /// </summary>
         static Log()
         {
-            Log.LastFlush = 0;
+            //Log.LastFlush = 0;
 
             Log.LogNames = FileSystem.Exists(".debug.names");
             Log.LogDebugLists = FileSystem.Exists(".debug.lists");
@@ -90,8 +89,7 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer
 
             try
             {
-                AssemblyName name = Assembly.GetExecutingAssembly().GetName();
-                Output(Level.None, null, null, null, name.Name + " " + name.Version);
+                Output(Level.None, null, null, null, Library.Build);
             }
             catch
             {
@@ -160,20 +158,21 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer
                 {
                     if (lineBuffer != null)
                     {
+                        FlushBuffer();
                         lineBuffer = null;
                     }
                 }
             }
         }
 
-        /// <summary>
-        /// Gets the last flush of buffer stamp.
-        /// </summary>
-        public static uint LastFlush
-        {
-            get;
-            private set;
-        }
+        ///// <summary>
+        ///// Gets the last flush of buffer stamp.
+        ///// </summary>
+        //public static uint LastFlush
+        //{
+        //    get;
+        //    private set;
+        //}
 
         /// <summary>
         /// Outputs the specified debugging message.
@@ -222,9 +221,6 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer
                     {
                         using (StreamWriter logFile = new StreamWriter(FileSystem.FilePathName(".log"), logFileCreated))
                         {
-                            if (Log.LogALot)
-                                lineBuffer.Add((DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff") + " Flush\n").ConformNewlines());
-
                             logFile.Write(String.Join("", lineBuffer.ToArray()));
                             logFile.Close();
                         }
@@ -232,17 +228,18 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer
                         logFileCreated = true;
                     }
                     catch
-                    {
-                    }
+                    { }
                     finally
                     {
-                        LastFlush = Global.CurrentFrame;
                         lineBuffer.Clear();
                     }
                 }
             }
             catch
+            { }
+            finally
             {
+                //LastFlush = Global.CurrentFrame;
             }
         }
 
@@ -395,10 +392,10 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer
                     return;
                 }
 
-                if (Global.LevelLoaded)
-                {
-                    msg.Insert(0, ' ').Insert(0, Global.CurrentFrame.ToString()).Insert(0, '@');
-                }
+                //if (Global.LevelLoaded)
+                //{
+                //    msg.Insert(0, ' ').Insert(0, Global.CurrentFrame.ToString()).Insert(0, '@');
+                //}
 
                 msg.Insert(0, "] ").Insert(0, Library.Name).Insert(0, "[");
 

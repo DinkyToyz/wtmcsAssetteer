@@ -9,11 +9,6 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer
     internal static class Global
     {
         /// <summary>
-        /// The current frame.
-        /// </summary>
-        public static uint CurrentFrame = 0;
-
-        /// <summary>
         /// A level is loaded.
         /// </summary>
         public static bool LevelLoaded = false;

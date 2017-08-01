@@ -1,7 +1,7 @@
-﻿using System;
+﻿using ColossalFramework.IO;
+using System;
 using System.IO;
 using System.Text;
-using ColossalFramework.IO;
 
 namespace WhatThe.Mods.CitiesSkylines.Asseteer
 {
@@ -16,13 +16,7 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer
         /// <value>
         /// The file path.
         /// </value>
-        public static string FilePath
-        {
-            get
-            {
-                return Path.Combine(DataLocation.localApplicationData, "ModConfig");
-            }
-        }
+        public static string FilePath => Path.Combine(DataLocation.localApplicationData, "ModConfig");
 
         /// <summary>
         /// Cleans the name.
@@ -117,6 +111,24 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer
             }
 
             return Path.GetFullPath(Path.Combine(FilePath, fileName));
+        }
+
+        /// <summary>
+        /// Writes the file.
+        /// </summary>
+        /// <param name="fileName">Name of the file.</param>
+        /// <param name="fileContent">Content of the file.</param>
+        public static void WriteFile(string fileName, string fileContent)
+        {
+            fileName = FilePathName(fileName);
+
+            string filePath = Path.GetDirectoryName(Path.GetFullPath(fileName));
+            if (!Directory.Exists(filePath))
+            {
+                Directory.CreateDirectory(filePath);
+            }
+
+            File.WriteAllText(fileName, fileContent, Encoding.UTF8);
         }
     }
 }

@@ -36,7 +36,15 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer.Reporter
         /// <value>
         /// The prefab count.
         /// </value>
-        public static int PrefabCount => GetPrefabCount<TreeInfo>();
+        public static int PrefabCount => PrefabHelper.Count<TreeInfo>();
+
+        /// <summary>
+        /// Gets the type.
+        /// </summary>
+        /// <value>
+        /// The type.
+        /// </value>
+        public override string Type => "Tree";
 
         /// <summary>
         /// Gets the lod material.
@@ -71,6 +79,11 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer.Reporter
         /// </returns>
         protected override Material GetMaterial(PrefabInfo prefab)
         {
+            Log.DevDebug(this, "GetMaterial", prefab);
+            Log.FlushBuffer();
+            Log.DevDebug(this, "GetMaterial", prefab, ((TreeInfo)prefab).m_material);
+            Log.FlushBuffer();
+
             return ((TreeInfo)prefab).m_material;
         }
 
@@ -84,6 +97,36 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer.Reporter
         protected override Mesh GetMesh(PrefabInfo prefab)
         {
             return ((TreeInfo)prefab).m_mesh;
+        }
+
+        /// <summary>
+        /// Initializes the current instance with values from specified prefab.
+        /// </summary>
+        /// <param name="prefab">The prefab.</param>
+        protected override void Initialize(PrefabInfo prefab)
+        {
+            base.Initialize(prefab);
+
+            if (!this.Initialized)
+            {
+                return;
+            }
+
+            TreeInfo tree = (TreeInfo)prefab;
+
+            if (tree.m_variations != null)
+            {
+                for (int i = 0; i < tree.m_variations.Length; i++)
+                {
+                    if ((UnityEngine.Object)tree.m_variations[i].m_tree != (UnityEngine.Object)null)
+                    {
+                        bool treeIs = tree.m_variations[i].m_tree.m_prefabInitialized ||
+                                      PrefabCollection<PropInfo>.FindLoaded(tree.m_variations[i].m_tree.gameObject.name) != null;
+
+                        this.ReferencedTrees.Add(new Reference(Reference.ReferenceTypes.Variation, tree.m_variations[i].m_tree.gameObject.name, treeIs));
+                    }
+                }
+            }
         }
     }
 }

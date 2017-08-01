@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -110,7 +109,10 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer.Modder
             get
             {
                 StringBuilder builder = new StringBuilder();
+                builder.Append("# ").Append(Library.Build).Append(Environment.NewLine).Append(Environment.NewLine);
+
                 this.BuildConfigurationString(builder);
+
                 return builder.ToString();
             }
         }
@@ -187,14 +189,7 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer.Modder
                 extension = "." + FileSystem.CleanName(this.cityName) + extension;
             }
 
-            string fileName = FileSystem.FilePathName(extension);
-            string filePath = Path.GetDirectoryName(Path.GetFullPath(fileName));
-            if (!Directory.Exists(filePath))
-            {
-                Directory.CreateDirectory(filePath);
-            }
-
-            File.WriteAllText(fileName, this.ConfigurationString);
+            FileSystem.WriteFile(extension, this.ConfigurationString);
         }
 
         /// <summary>
@@ -530,6 +525,17 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer.Modder
             }
 
             /// <summary>
+            /// Returns an enumerator that iterates through a collection.
+            /// </summary>
+            /// <returns>
+            /// An <see cref="T:System.Collections.IEnumerator" /> object that can be used to iterate through the collection.
+            /// </returns>
+            System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+            {
+                return this.dictionary.GetEnumerator();
+            }
+
+            /// <summary>
             /// Removes the element with the specified key from the <see cref="T:System.Collections.Generic.IDictionary`2" />.
             /// </summary>
             /// <param name="key">The key of the element to remove.</param>
@@ -570,17 +576,6 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer.Modder
             public void Set(string key, object value)
             {
                 this[key] = value.ToString();
-            }
-
-            /// <summary>
-            /// Returns an enumerator that iterates through a collection.
-            /// </summary>
-            /// <returns>
-            /// An <see cref="T:System.Collections.IEnumerator" /> object that can be used to iterate through the collection.
-            /// </returns>
-            System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
-            {
-                return this.dictionary.GetEnumerator();
             }
 
             /// <summary>

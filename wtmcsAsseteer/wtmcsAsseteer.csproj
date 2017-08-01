@@ -53,6 +53,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Build\PreBuildStamps.cs" />
+    <Compile Include="Pieces\PrefabHelper.cs" />
+    <Compile Include="Reporter\AssetSizes.cs" />
     <Compile Include="Reporter\AssetInfo.cs" />
     <Compile Include="Reporter\AssetReporter.cs" />
     <Compile Include="Modder\BuildingAsseteer.cs" />
@@ -60,14 +63,18 @@
     <Compile Include="Modder\Configuration.cs" />
     <Compile Include="Reporter\BuildingAssetInfo.cs" />
     <Compile Include="Reporter\CitizenAssetInfo.cs" />
-    <Compile Include="Reporter\HtmlReportTemplate.cs">
+    <Compile Include="Reporter\Template\HtmlReportTemplate.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>HtmlReportTemplate.tt</DependentUpon>
     </Compile>
-    <Compile Include="Reporter\HtmlReport.cs" />
+    <Compile Include="Reporter\Template\HtmlReportTemplateValues.cs" />
+    <Compile Include="Reporter\ObjectInfo.cs" />
     <Compile Include="Reporter\PropAssetInfo.cs" />
+    <Compile Include="Reporter\Rectangle.cs" />
+    <Compile Include="Reporter\Reference.cs" />
     <Compile Include="Reporter\TreeAssetInfo.cs" />
+    <Compile Include="Reporter\Triangles.cs" />
     <Compile Include="Reporter\VehicleAssetInfo.cs" />
     <Compile Include="Util\Extensions.cs" />
     <Compile Include="Util\FileSystem.cs" />
@@ -76,6 +83,7 @@
     <Compile Include="Pieces\InfoHelper.cs" />
     <Compile Include="Pieces\Library.cs" />
     <Compile Include="API\LoadingExtension.cs" />
+    <Compile Include="Util\HtmlCleaner.cs" />
     <Compile Include="Util\Log.cs" />
     <Compile Include="API\Mod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -83,12 +91,32 @@
   <ItemGroup>
     <None Include="Build\PostBuild.cmd" />
     <None Include="Build\SteamBBCode2MarkDown.pl" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
+    <None Include="Reporter\Template\HtmlReportTemplate.scss" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Reporter\HtmlReportTemplate.tt">
+    <Content Include="Reporter\Template\HtmlReportTemplate.css">
+      <DependentUpon>HtmlReportTemplate.scss</DependentUpon>
+    </Content>
+    <Content Include="Reporter\Template\HtmlReportTemplate.es5.js">
+      <DependentUpon>HtmlReportTemplate.js</DependentUpon>
+    </Content>
+    <Content Include="Reporter\Template\HtmlReportTemplate.es5.min.js">
+      <DependentUpon>HtmlReportTemplate.es5.js</DependentUpon>
+    </Content>
+    <Content Include="Reporter\Template\HtmlReportTemplate.js" />
+    <Content Include="Reporter\Template\HtmlReportTemplate.min.css">
+      <DependentUpon>HtmlReportTemplate.css</DependentUpon>
+    </Content>
+    <Content Include="Reporter\Template\HtmlReportTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>HtmlReportTemplate.cs</LastGenOutput>
     </Content>
+    <Content Include="Reporter\Template\table.js" />
+    <Content Include="Reporter\Template\table.min.js" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -97,6 +125,9 @@
   <PropertyGroup>
     <PostBuildEvent>"$(ProjectDir)Build\PostBuild.cmd" # $(SolutionName) $(TargetFileName) $(Configuration)
 </PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>c:\Applications\bin\PreBuildStamper.exe "$(ProjectDir)\Build\PreBuildStamps.cs"</PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

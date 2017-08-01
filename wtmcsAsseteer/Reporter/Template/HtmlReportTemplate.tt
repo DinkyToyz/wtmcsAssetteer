@@ -1,0 +1,170 @@
+﻿<#@ template language="C#" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Linq" #>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="<#= BuildInfo #>" />
+<title>Asset Report</title>
+<style type="text/css"><#@ include file="HtmlReportTemplate.min.css" #></style>
+<script language="javascript" type="text/javascript"><#@ include file="table.min.js" #></script>
+<script language="javascript" type="text/javascript"><#@ include file="HtmlReportTemplate.es5.min.js" #></script>
+</head>
+<body>
+
+<a class="top-table-showhide showhide" href="javascript:showOrHideElement('top-table-hideable', 'top-table-show', 'top-table-hide')">
+	<span id="top-table-hide">&#9664;</span>
+	<span id="top-table-show">&#9658;</span>
+</a>
+
+<div id="top-table-hideable">
+<table class="top-table">
+	<thead>
+		<tr class="table-headers">
+			<th></th>
+			<th colspan=3>Asset Counts</th>
+			<th colspan=10>Mean Values for Built-Ins</th>
+		</tr>
+		<tr class="header-headers">
+			<th></th>
+			<th colspan=3></th>
+			<th colspan=5>Main</th>
+			<th colspan=5>Lod</th></tr>
+		<tr class="header-headers">
+			<th></th>
+			<th colspan=3></th>
+			<th colspan=3>Triangles</th><th colspan=2>Textures</th>
+			<th colspan=3>Triangles</th><th colspan=2>Textures</th>
+		</tr>
+		<tr class="column-headers">
+			<th class="txt">Type</th>
+			<th class="num">All</th><th class="num">Built-In</th><th class="num">Custom</th>
+			<th class="num">Count</th><th class="num">Volume</th><th class="num">Weight</th><th class="num">Dimensions</th><th class="num">Area</th>
+			<th class="num">Count</th><th class="num">Volume</th><th class="num">Weight</th><th class="num">Dimensions</th><th class="num">Area</th>
+		</tr>
+	</thead>
+	<tbody>
+		<#
+			foreach (AssetSizes sizes in MeanBuiltInAssetSizes)
+			{
+				#><tr>
+					<td class="txt"><#= sizes.Type #></td>
+					<td class="txt"><#= sizes.TotalAssetCount #></td>
+					<td class="txt"><#= sizes.BuiltInAssetCount #></td>
+					<td class="txt"><#= sizes.CustomAssetCount #></td>
+					<td class="num"><#= sizes.TrianglesCount #></td>
+					<td class="num"><#= sizes.TrianglesVolume #></td>
+					<td class="num"><#= sizes.TrianglesWeight #></td>
+					<td class="dim"><#= sizes.TexturesDimensions #></td>
+					<td class="num"><#= sizes.TexturesArea #></td>
+					<td class="num"><#= sizes.LodTrianglesCount #></td>
+					<td class="num"><#= sizes.LodTrianglesVolume #></td>
+					<td class="num"><#= sizes.LodTrianglesWeight #></td>
+					<td class="dim"><#= sizes.LodTexturesDimensions #></td>
+					<td class="num"><#= sizes.LodTexturesArea #></td>
+				</tr><#
+			}
+		#>
+	</tbody>
+</table>
+</div>
+
+<table class="main-table table-autosort table-autofilter table-filtered-rowcount:main-table-visible-rowspan table-rowcount:main-table-total-rowspan">
+	<thead>
+		<tr class="table-headers"><th colspan=15>Assets (<span id="main-table-visible-rowspan"><#= Assets.Count #></span>/<span id="main-table-total-rowspan"><#= Assets.Count #></span>)</th></tr>
+		<tr class="header-headers">
+			<th colspan=3></th>
+			<th colspan=5>Main</th>
+			<th colspan=5>Lod</th>
+			<th colspan=2></th>
+		</tr>
+		<tr class="header-headers">
+			<th colspan=3></th>
+			<th colspan=3>Triangles</th><th colspan=2>Textures</th>
+			<th colspan=3>Triangles</th><th colspan=2>Textures</th>
+			<th colspan=2>
+				References
+				<a class="showhide" id="ref-text-hide" href="javascript:hideElements('ref-text-show', 'ref-text-hide', 'ref-text')">&#9664;</a>
+				<a class="showhide" id="ref-text-show" href="javascript:showElements('ref-text-show', 'ref-text-hide', 'ref-text')">&#9658;</a>
+			</th>
+		</tr>
+		<tr class="column-headers">
+			<th class="txt table-sortable:alphanumeric table-filterable">Source</th><th class="txt table-sortable:alphanumeric table-filterable">Type</th><th class="txt table-sortable:alphanumeric">Name</th>
+			<th class="num table-sortable:numeric">Count</th><th class="num table-sortable:numeric">Volume</th><th class="num table-sortable:numeric">Weight</th><th class="num table-sortable:alphanumeric">Dimensions</th><th class="num table-sortable:numeric">Area</th>
+			<th class="num table-sortable:numeric">Count</th><th class="num table-sortable:numeric">Volume</th><th class="num table-sortable:numeric">Weight</th><th class="num table-sortable:alphanumeric">Dimensions</th><th class="num table-sortable:numeric">Area</th>
+			<th class="num table-sortable:numeric">Count</th>
+			<th class="txt table-sortable:alphanumeric">Props &amp; Trees</th>
+		</tr>
+	</thead>
+	<tbody>
+		<# foreach (AssetInfo asset in Assets) { #>
+			<tr>
+				<td class="txt"><#= asset.SourceType #></td>
+				<td class="txt"><#= asset.Type #></td>
+				<td class="name"><# 
+					if (asset.SteamId != 0) 
+					{
+						Write(String.Format("<a href=\"{0}\" target=\"_blank\">{1}</a>", asset.SteamLink, asset.EscapedName));
+					}
+					else
+					{
+						Write(asset.EscapedName);
+					}
+				#></td>
+				<td class="num"><#= asset.TrianglesSize.Count #></td>
+				<td class="num"><#= asset.TrianglesSize.Volume #></td>
+				<td class="num"><#= asset.TrianglesSize.Weight #></td>
+				<td class="dim"><#= asset.TextureSize.Dimensions #></td>
+				<td class="num"><#= asset.TextureSize.Area #></td>
+				<td class="num"><#= asset.LodTrianglesSize.Count #></td>
+				<td class="num"><#= asset.LodTrianglesSize.Volume #></td>
+				<td class="num"><#= asset.LodTrianglesSize.Weight #></td>
+				<td class="dim"><#= asset.LodTextureSize.Dimensions #></td>
+				<td class="num"><#= asset.LodTextureSize.Area #></td>
+				<td class="num"><#= asset.ReferenceCount #></td>
+				<td class="txt"><span class="ref-text"><#
+					int references = asset.ReferenceCount;
+					if (references > 0)
+					{
+						foreach (Reference reference in asset.References.OrderBy(a => a.ReferenceType).ThenBy(a => a.Name))
+						{
+							references --;
+
+							Write("<span class=\"name\">");
+
+							if (reference.SteamId > 0)
+							{
+								Write(String.Format("<a href=\"{0}\" target=\"_blank\">{1}</a>", reference.SteamLink, reference.EscapedName));
+							}
+							else
+							{
+								Write(reference.EscapedName);
+							}
+
+							if (reference.Missing)
+							{
+								Write(" (missing!)");
+							}
+
+							if (references > 0)
+                            {
+								Write(";");
+                            }
+
+							Write("</span>");
+
+							if (references > 0)
+                            {
+								Write(" ");
+                            }
+						}
+					}
+				#></span></td>
+			</tr>
+		<# } #>
+	</tbody>
+</table>
+
+</body>
+</html>

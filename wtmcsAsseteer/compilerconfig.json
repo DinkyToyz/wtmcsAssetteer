@@ -1,0 +1,10 @@
+﻿[
+  {
+    "outputFile": "Reporter/Template/HtmlReportTemplate.css",
+    "inputFile": "Reporter/Template/HtmlReportTemplate.scss"
+  },
+  {
+    "outputFile": "Reporter/Template/HtmlReportTemplate.es5.js",
+    "inputFile": "Reporter/Template/HtmlReportTemplate.js"
+  }
+]

@@ -24,26 +24,8 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer
         /// <param name="loading">The loading.</param>
         public override void OnCreated(ILoading loading)
         {
-            Log.Debug(this, "OnCreated", "Begin");
-
-            try
-            {
-                foreach (IAsseteer asseteer in Global.Asseteers)
-                {
-                    asseteer.SaveAssets();
-                }
-            }
-            catch (Exception ex)
-            {
-                Log.Error(this, "OnCreated", ex);
-            }
-            finally
-            {
-                Log.Debug(this, "OnCreated", "Base");
-                base.OnCreated(loading);
-            }
-
-            Log.Debug(this, "OnCreated", "End");
+            Log.Debug(this, "OnCreated");
+            base.OnCreated(loading);
         }
 
         /// <summary>
@@ -52,26 +34,65 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer
         /// <param name="mode">The load mode.</param>
         public override void OnLevelLoaded(LoadMode mode)
         {
-            Log.Debug(this, "OnLevelLoaded", "Begin");
-
             try
             {
-                foreach (IAsseteer asseteer in Global.Asseteers)
+                Log.Debug(this, "OnLevelLoaded", "Begin");
+
+                try
                 {
-                    asseteer.SaveObjects();
+                    // Save asset report.
+                    try
+                    {
+                        Reporter.AssetReporter.SaveReport();
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Error(this, "OnLevelLoaded", ex, "SaveReport");
+                    }
+
+                    // Save assets and objects.
+                    try
+                    {
+                        foreach (IAsseteer asseteer in Global.Asseteers)
+                        {
+                            // Save assets.
+                            try
+                            {
+                                asseteer.SaveAssets();
+                            }
+                            catch (Exception ex)
+                            {
+                                Log.Error(this, "OnLevelLoaded", ex, "SaveAssets", asseteer.GetType().ToString());
+                            }
+
+                            // Save objects.
+                            try
+                            {
+                                asseteer.SaveObjects();
+                            }
+                            catch (Exception ex)
+                            {
+                                Log.Error(this, "OnLevelLoaded", ex, "SaveObjects", asseteer.GetType().ToString());
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Error(this, "OnLevelLoaded", ex, "SaveAssetsAndObjects");
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                Log.Error(this, "OnLevelLoaded", ex);
+                finally
+                {
+                    Log.Debug(this, "OnLevelLoaded", "Base");
+                    base.OnLevelLoaded(mode);
+                }
+
+                Log.Debug(this, "OnLevelLoaded", "End");
             }
             finally
             {
-                Log.Debug(this, "OnLevelLoaded", "Base");
-                base.OnLevelLoaded(mode);
+                Log.Buffer = false;
             }
-
-            Log.Debug(this, "OnLevelLoaded", "End");
         }
     }
 }

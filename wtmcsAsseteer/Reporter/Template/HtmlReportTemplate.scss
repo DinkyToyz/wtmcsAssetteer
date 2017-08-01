@@ -1,0 +1,134 @@
+﻿$wtmcsblack:  		#060607;
+$wtmcsbright: 		#01b9ff;
+$wtmcsmedium: 		#0a5486;
+$wtmcsdark:   		#114069;
+$wtmcswhite:  		#91d8ff;
+$wtmcsmilddark:		#103474;
+$wtmcsmild:		    #2c6bad;
+$wtmcsmildlight:	#368cd0;
+
+$font: sans-serif;
+
+$background-color: $wtmcsblack;
+$text-color: $wtmcswhite;
+
+$table-background-color: $wtmcsmildlight;
+$table-text-color: $wtmcsblack;
+$table-border-color: $wtmcsmedium;
+
+$header-background-color: $wtmcsmilddark;
+$header-text-color: $wtmcswhite;
+
+$odd-row-background-color: $wtmcsmildlight;
+$even-row-background-color: $wtmcsmild;
+
+body {
+    font-family: $font;
+    color: $text-color;
+    background-color: $background-color;
+}
+
+table {
+    color: $table-text-color;
+    background-color: $table-background-color;
+    border-collapse: collapse;
+    margin-top: 1em;
+    margin-bottom: 2em;
+    margin-left: 1em;
+    margin-right: 1em;
+    table-layout: fixed;
+}
+
+table, th, td {
+    border: 1px solid $table-border-color;
+}
+
+td, th {
+    padding: 8px;
+}
+
+thead {
+    color: $header-text-color;
+    background-color: $header-background-color;
+}
+
+tbody {
+    color: $table-text-color;
+    background-color: $table-background-color;
+
+    tr:nth-child(even) {
+        background-color: $even-row-background-color;
+    }
+
+    tr:nth-child(odd) {
+        background-color: $odd-row-background-color;
+    }
+}
+
+th {
+    text-align: center;
+    font-size: 75%;
+    text-transform: capitalize;
+}
+
+td {
+    a {
+        color: $table-text-color;
+        text-decoration: underline $wtmcsdark;
+    }
+}
+
+tr.table-headers {
+    th {
+        font-variant: small-caps;
+    }
+}
+
+span.name {
+    white-space: nowrap
+}
+
+td.num, th.num, td.dim, th.dim {
+    text-align: right;
+}
+
+td.txt, th.txt {
+    text-align: left;
+}
+
+td.name {
+    @extend td.txt;
+    @extend span.name;
+}
+
+th.table-sortable:before {
+    content: "\25BD\25B3";
+}
+
+th.table-sorted-desc:before {
+    content: "\25BD\25B2";
+}
+
+th.table-sorted-asc:before {
+    content: "\25BC\25B3";
+}
+
+select.table-autofilter {
+    background-color: $header-background-color;
+    color: $wtmcsbright;
+    border-color: $table-border-color;
+    outline-color: $table-border-color;
+}
+
+.showhide {
+    color: $wtmcsbright;
+    text-decoration: none;
+}
+
+.top-table-showhide {
+    float: left;
+}
+
+#top-table-show, #ref-text-show {
+    display: none;
+}

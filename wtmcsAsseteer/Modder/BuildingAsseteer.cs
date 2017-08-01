@@ -1,5 +1,5 @@
-﻿using System;
-using ColossalFramework;
+﻿using ColossalFramework;
+using System;
 
 namespace WhatThe.Mods.CitiesSkylines.Asseteer.Modder
 {
@@ -15,12 +15,9 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer.Modder
         {
             try
             {
-                int c = PrefabCollection<BuildingInfo>.PrefabCount();
-                for (uint i = 0; i < c; i++)
+                foreach (BuildingInfo building in PrefabHelper.Collect<BuildingInfo>())
                 {
-                    BuildingInfo building = PrefabCollection<BuildingInfo>.GetPrefab(i);
-
-                    Log.InfoList info = this.GetBuildingLogInfo(null, PrefabCollection<BuildingInfo>.GetPrefab(i));
+                    Log.InfoList info = this.GetBuildingLogInfo(null, building);
 
                     if (info != null)
                     {
@@ -70,14 +67,17 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer.Modder
         /// </summary>
         /// <param name="buildingManager">The building manager.</param>
         /// <param name="configuration">The configuration.</param>
+        /// <param name="identityType">Type of the identity.</param>
         /// <param name="buildingId">The building identifier.</param>
         /// <param name="buildingInfo">The building information.</param>
-        /// <returns>A new item.</returns>
-        public Configuration.Item NewItem(BuildingManager buildingManager, Configuration configuration, ushort buildingId, BuildingInfo buildingInfo)
+        /// <returns>
+        /// A new item.
+        /// </returns>
+        public Configuration.Item NewItem(BuildingManager buildingManager, Configuration configuration, string identityType, ushort buildingId, BuildingInfo buildingInfo)
         {
             Configuration.Item item = configuration.NewItem();
 
-            item.Identity.Set("Asset", buildingInfo.name);
+            item.Identity.Set(identityType, buildingInfo.name);
 
             item.Values.Set("LowWealthTourists", buildingInfo.m_buildingAI.GetLowWealthTourists());
             item.Values.Set("MediumWealthTourists", buildingInfo.m_buildingAI.GetMediumWealthTourists());
@@ -104,10 +104,9 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer.Modder
             {
                 Configuration config = new Configuration(Configuration.ItemTypes.Assets, Configuration.AssetTypes.Buildings, null);
 
-                int c = PrefabCollection<BuildingInfo>.PrefabCount();
-                for (uint i = 0; i < c; i++)
+                foreach (BuildingInfo building in PrefabHelper.Collect<BuildingInfo>())
                 {
-                    config.Add(this.NewItem(null, config, 0, PrefabCollection<BuildingInfo>.GetPrefab(i)));
+                    config.Add(this.NewItem(null, config, "Asset", 0, building));
                 }
 
                 config.Save();
@@ -134,7 +133,7 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer.Modder
                 {
                     if (buildings[id].Info != null && (buildings[id].m_flags & Building.Flags.Created) != Building.Flags.None)
                     {
-                        config.Add(this.NewItem(buildingManager, config, id, buildings[id].Info));
+                        config.Add(this.NewItem(buildingManager, config, "Object", id, buildings[id].Info));
                     }
                 }
 
@@ -142,7 +141,7 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer.Modder
             }
             catch (Exception ex)
             {
-                Log.Error(this, "SaveAssets", ex);
+                Log.Error(this, "SaveObjects", ex);
             }
         }
 

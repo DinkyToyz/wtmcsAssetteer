@@ -36,7 +36,15 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer.Reporter
         /// <value>
         /// The prefab count.
         /// </value>
-        public static int PrefabCount => GetPrefabCount<PropInfo>();
+        public static int PrefabCount => PrefabHelper.Count<PropInfo>();
+
+        /// <summary>
+        /// Gets the type.
+        /// </summary>
+        /// <value>
+        /// The type.
+        /// </value>
+        public override string Type => "Prop";
 
         /// <summary>
         /// Gets the lod material.
@@ -84,6 +92,36 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer.Reporter
         protected override Mesh GetMesh(PrefabInfo prefab)
         {
             return ((PropInfo)prefab).m_mesh;
+        }
+
+        /// <summary>
+        /// Initializes the current instance with values from specified prefab.
+        /// </summary>
+        /// <param name="prefab">The prefab.</param>
+        protected override void Initialize(PrefabInfo prefab)
+        {
+            base.Initialize(prefab);
+
+            if (!this.Initialized)
+            {
+                return;
+            }
+
+            PropInfo prop = (PropInfo)prefab;
+
+            if (prop.m_variations != null)
+            {
+                for (int i = 0; i < prop.m_variations.Length; i++)
+                {
+                    if ((UnityEngine.Object)prop.m_variations[i].m_prop != (UnityEngine.Object)null)
+                    {
+                        bool propIs = prop.m_variations[i].m_prop.m_prefabInitialized ||
+                                      PrefabCollection<PropInfo>.FindLoaded(prop.m_variations[i].m_prop.gameObject.name) != null;
+
+                        this.ReferencedProps.Add(new Reference(Reference.ReferenceTypes.Variation, prop.m_variations[i].m_prop.gameObject.name, propIs));
+                    }
+                }
+            }
         }
     }
 }

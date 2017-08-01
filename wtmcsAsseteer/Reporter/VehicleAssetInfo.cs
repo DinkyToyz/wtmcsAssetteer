@@ -36,7 +36,15 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer.Reporter
         /// <value>
         /// The prefab count.
         /// </value>
-        public static int PrefabCount => GetPrefabCount<VehicleInfo>();
+        public static int PrefabCount => PrefabHelper.Count<VehicleInfo>();
+
+        /// <summary>
+        /// Gets the type.
+        /// </summary>
+        /// <value>
+        /// The type.
+        /// </value>
+        public override string Type => "Vehicle";
 
         /// <summary>
         /// Gets the lod material.
