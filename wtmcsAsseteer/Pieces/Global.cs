@@ -9,9 +9,29 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer
     internal static class Global
     {
         /// <summary>
+        /// Whether to use the aseteers.
+        /// </summary>
+        public static readonly bool UseAseteers = false;
+
+        /// <summary>
+        /// The game has been started.
+        /// </summary>
+        public static bool GameStarted = false;
+
+        /// <summary>
         /// A level is loaded.
         /// </summary>
         public static bool LevelLoaded = false;
+
+        /// <summary>
+        /// The mod enabled
+        /// </summary>
+        public static bool ModEnabled = false;
+
+        /// <summary>
+        /// The settings
+        /// </summary>
+        public static SerializableSettings Settings = SerializableSettings.Load();
 
         /// <summary>
         /// The asset handlers.

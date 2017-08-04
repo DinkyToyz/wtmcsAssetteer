@@ -27,22 +27,27 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer.Reporter.Template
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("<!DOCTYPE html>\r\n<html>\r\n<head>\r\n<meta name=\"generator\" content=\"");
             
-            #line 8 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+            #line 5 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ Minify = true; 
+            
+            #line default
+            #line hidden
+            this.Write("<!DOCTYPE html>\r\n<html>\r\n<head>\r\n<meta charset=\"UTF-8\" />\r\n<meta http-equiv=\"Cont" +
+                    "ent-Type\" content=\"text/html;charset=UTF-8\">\r\n<meta name=\"generator\" content=\"");
+            
+            #line 11 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(BuildInfo));
             
             #line default
             #line hidden
             this.Write("\" />\r\n<title>Asset Report</title>\r\n<style type=\"text/css\">");
-            this.Write(@"body{font-family:sans-serif;color:#91d8ff;background-color:#060607;}table{color:#060607;background-color:#368cd0;border-collapse:collapse;margin-top:1em;margin-bottom:2em;margin-left:1em;margin-right:1em;table-layout:fixed;}table,th,td{border:1px solid #0a5486;}td,th{padding:8px;}thead{color:#91d8ff;background-color:#103474;}tbody{color:#060607;background-color:#368cd0;}tbody tr:nth-child(even){background-color:#2c6bad;}tbody tr:nth-child(odd){background-color:#368cd0;}th{text-align:center;font-size:75%;text-transform:capitalize;}td a{color:#060607;text-decoration:underline #114069;}tr.table-headers th{font-variant:small-caps;}span.name,td.name{white-space:nowrap;}td.num,th.num,td.dim,th.dim{text-align:right;}td.txt,td.name,th.txt{text-align:left;}th.table-sortable:before{content:""▽△"";}th.table-sorted-desc:before{content:""▽▲"";}th.table-sorted-asc:before{content:""▼△"";}select.table-autofilter{background-color:#103474;color:#01b9ff;border-color:#0a5486;outline-color:#0a5486;}.showhide{color:#01b9ff;text-decoration:none;}.top-table-showhide{float:left;}#top-table-show,#ref-text-show{display:none;}");
+            this.Write(@"body{font-family:sans-serif;color:#91d8ff;background-color:#060607;}table{color:#060607;background-color:#368cd0;border-collapse:collapse;margin-top:1em;margin-bottom:2em;margin-left:1em;margin-right:1em;table-layout:fixed;}table,th,td{border:1px solid #0a5486;}td,th{padding:8px;}thead{color:#91d8ff;background-color:#103474;}tbody{color:#060607;background-color:#368cd0;}tbody tr{background-color:#368cd0;}tbody tr.table-row-odd{background-color:#2c6bad;}th{text-align:center;font-size:75%;text-transform:capitalize;}td a{color:#060607;text-decoration:underline #114069;}tr.table-headers th{font-variant:small-caps;}span.name,td.nam{white-space:nowrap;}td.num,th.num,td.dim,th.dim{text-align:right;}td.txt,td.nam,th.txt{text-align:left;}th.table-sortable:before{content:""▽△"";}th.table-sorted-desc:before{content:""▽▲"";}th.table-sorted-asc:before{content:""▼△"";}th.table-filtered span:after{display:block;float:right;content:""⌔"";}select.table-autofilter{background-color:#103474;color:#01b9ff;border-color:#0a5486;outline-color:#0a5486;}.link,table.main-table tr.column-headers th{cursor:pointer;}.showhide,.depshow,.dephide,.refshow,.refhide{color:#01b9ff;text-decoration:none;}.depshow,.dephide,.refshow,.refhide{float:right;}.top-table-showhide{float:left;}.miss{color:#aa0132;}");
             this.Write("</style>\r\n<script language=\"javascript\" type=\"text/javascript\">");
-            this.Write("/**\n * Copyright (c)2005-2009 Matt Kruse (javascripttoolbox.com)\n * \n * Dual lice" +
-                    "nsed under the MIT and GPL licenses. \n * This basically means you can use this c" +
-                    "ode however you want for\n * free, but don\'t claim to have written it yourself!\n " +
-                    "* Donations always accepted: http://www.JavascriptToolbox.com/donate/\n * \n * Ple" +
-                    "ase do not link to the .js files on javascripttoolbox.com from\n * your site. Cop" +
-                    "y the files locally to your server instead.\n * \n */\neval(function(p,a,c,k,e,d){e" +
+            this.Write("/* Copyright (c)2005-2009 Matt Kruse (javascripttoolbox.com) Dual licensed under " +
+                    "the MIT and GPL licenses. This basically means you can use this code however you" +
+                    " want for free, but don\'t claim to have written it yourself! Donations always ac" +
+                    "cepted: http://www.JavascriptToolbox.com/donate/ */ eval(function(p,a,c,k,e,d){e" +
                     "=function(c){return(c<a?\'\':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+2" +
                     "9):c.toString(36))};if(!\'\'.replace(/^/,String)){while(c--){d[e(c)]=k[c]||e(c)}k=" +
                     "[function(e){return d[e]}];e=function(){return\'\\\\w+\'};c=1};while(c--){if(k[c]){p" +
@@ -167,48 +172,98 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer.Reporter.Template
                     "ilteredcount|autostripe|nosort|filterable|floor|data|to|asc|Math|IMG|currency_co" +
                     "mma|currency|TD|break|call|onload|toLowerCase|object|onchange|parseFloat|appendC" +
                     "hild|one|class|TR|TH|delete|2000|checkbox|100|1900|radio|checked|nodeType|br|pag" +
-                    "eNext|filterReset|pagePrevious|filterList|50\'.split(\'|\'),0,{}))\n");
+                    "eNext|filterReset|pagePrevious|filterList|50\'.split(\'|\'),0,{}))");
             this.Write("</script>\r\n<script language=\"javascript\" type=\"text/javascript\">");
-            this.Write(@"""use strict"";function showElements(n,t,i){var f=document.getElementById(n),e=document.getElementById(t),u,r;if(f.style.display=""none"",e.style.display=""inline"",i)for(u=document.getElementsByClassName(i),r=0;r<u.length;r++)u[r].style.display===""none""&&(u[r].style.display=u[r].style.org_display)}function hideElements(n,t,i){var f=document.getElementById(n),e=document.getElementById(t),u,r;if(f.style.display=""inline"",e.style.display=""none"",i)for(u=document.getElementsByClassName(i),r=0;r<u.length;r++)u[r].style.display!==""none""&&(u[r].style.org_display=u[r].style.display,u[r].style.display=""none"")}function showOrHideElement(n,t,i){var r=document.getElementById(n);r.style.display===""none""?(r.style.display=""block"",showElements(t,i)):(r.style.display=""none"",hideElements(t,i))}");
+            this.Write("\"use strict\";function quotedParameterString(n,t){return t||typeof n==\"undefined\"|" +
+                    "|n===null?\"null\":\"\'\"+n.replace(\"\'\",\"\\\\\'\")+\"\'\"}function setDisplayProperty(n,t,i)" +
+                    "{n.style.display===t||(t===\"none\"?(i&&n.style.display&&n.style.display!==\"none\"&" +
+                    "&(n.style.original_display_property=n.style.display),n.style.display=t):n.style." +
+                    "display=i&&n.style.original_display_property?n.style.original_display_property:t" +
+                    ")}function setDisplayPropertyOnElement(n,t,i){if(n){var r=document.getElementByI" +
+                    "d(n);r&&setDisplayProperty(r,t,i)}}function setDisplayPropertyOnElements(n,t,i){" +
+                    "var e,f,r,u;if(n)for(e=n.split(/[\\s,;]+/),f=0;f<e.length;f++)if(logToConsole&&co" +
+                    "nsole.log(\"SDPOEs\",e[f],t,i),r=document.getElementsByClassName(e[f]),r)for(u=0;u" +
+                    "<r.length;u++)logToConsole&&console.log(\"sDPOEs\",r[u]),r[u]&&setDisplayProperty(" +
+                    "r[u],t,i)}function showAndHideElements(n,t,i,r,u,f){logToConsole&&console.log(\"S" +
+                    "AHEs\",n,t,u,f);setDisplayPropertyOnElement(n,\"none\",!1);setDisplayPropertyOnElem" +
+                    "ent(t,\"inline\",!1);setDisplayPropertyOnElement(i,\"inline\",!0);setDisplayProperty" +
+                    "OnElement(r,\"none\",!0);setDisplayPropertyOnElements(u,\"inline\",!0);setDisplayPro" +
+                    "pertyOnElements(f,\"none\",!0)}function showElements(n,t,i,r,u){logToConsole&&cons" +
+                    "ole.log(\"SE\",n,t,i,r,u);showAndHideElements(n,t,i,null,r,u)}function hideElement" +
+                    "s(n,t,i,r,u){logToConsole&&console.log(\"HE\",n,t,i,r,u);showAndHideElements(t,n,n" +
+                    "ull,i,u,r)}function showOrHideElement(n,t,i,r,u){if(i){var f=document.getElement" +
+                    "ById(i);f&&(f.style.display===\"none\"?(setDisplayProperty(f,\"block\",!0),showEleme" +
+                    "nts(n,t,null,r,u)):(setDisplayProperty(f,\"none\",!0),hideElements(n,t,null,r,u)))" +
+                    "}}function initializeSingleShowHideToggleButtons(n,t,i,r,u,f,e,o){if(i){var s=do" +
+                    "cument.getElementById(i);s&&(s.href=\"javascript:showOrHideElement(\"+quotedParame" +
+                    "terString(r,!t)+\",\"+quotedParameterString(u,!t)+\",\"+quotedParameterString(f)+\",\"" +
+                    "+quotedParameterString(e)+\",\"+quotedParameterString(o)+\")\",logToConsole&&console" +
+                    ".log(\"ISSHB\",r,s.href),n?hideElements(r,u,f,e,o):t&&showElements(r,u))}}function" +
+                    " initializeSingleShowHideButtons(n,t,i,r,u,f,e){var o;i&&(o=document.getElementB" +
+                    "yId(i),o&&(o.href=\"javascript:showElements(\"+quotedParameterString(i,!t)+\",\"+quo" +
+                    "tedParameterString(r,!t)+\",\"+quotedParameterString(u)+\",\"+quotedParameterString(" +
+                    "f)+\",\"+quotedParameterString(e)+\")\",t&&!n&&(buttons.style.display=\"none\")));r&&(" +
+                    "o=document.getElementById(r),o&&(o.href=\"javascript:hideElements(\"+quotedParamet" +
+                    "erString(i,!t)+\",\"+quotedParameterString(r,!t)+\",\"+quotedParameterString(u)+\",\"+" +
+                    "quotedParameterString(f)+\",\"+quotedParameterString(e)+\")\",n&&o.onclick()))}funct" +
+                    "ion initializeMultiShowHideToggleButtons(n,t,i,r,u,f,e,o){var s,l,c,h,a,v;if(log" +
+                    "ToConsole&&console.log(\"IMSHTB\",n,t,i,r,u,f,e,o),e)for(logToConsole&&console.log" +
+                    "(\"IMSHTB\",e),a=e.split(/[\\s,;]+/),l=0;l<a.length;l++)if(h=document.getElementsBy" +
+                    "ClassName(a[l]),h)for(s=0;s<h.length;s++)h[s]&&(c=h[s].getAttribute(i),c&&(h[s]." +
+                    "href=\"javascript:showElements(\"+quotedParameterString(r+c,!t)+\",\"+quotedParamete" +
+                    "rString(u+c,!t)+\",\"+quotedParameterString(f+c)+\")\",logToConsole&&console.log(\"IM" +
+                    "SHTB\",a[l],c,h[s].href),t&&!n&&(h[s].style.display=\"none\")));if(o)for(logToConso" +
+                    "le&&console.log(\"IMSHTB\",e),a=o.split(/[\\s,;]+/),l=0;l<a.length;l++)if(h=documen" +
+                    "t.getElementsByClassName(a[l]),h)for(s=0;s<h.length;s++)h[s]&&(c=h[s].getAttribu" +
+                    "te(i),c&&(v=\"hideElements(\"+quotedParameterString(r+c,!t)+\",\"+quotedParameterStr" +
+                    "ing(u+c,!t)+\",\"+quotedParameterString(f+c)+\")\",h[s].href=\"javascript:\"+v,logToCo" +
+                    "nsole&&console.log(\"IMSHTB\",a[l],c,h[s].href),n&&eval(v)))}var logToConsole=!0;w" +
+                    "indow.onload=function(){initializeSingleShowHideToggleButtons(!1,!0,\"top-table-s" +
+                    "howhide\",\"top-table-show\",\"top-table-hide\",\"top-table-hideable\");initializeSingl" +
+                    "eShowHideButtons(!1,!1,\"dep-text-show\",\"dep-text-hide\",null,\"deptxt dephide\",\"de" +
+                    "pshow\");initializeSingleShowHideButtons(!1,!1,\"ref-text-show\",\"ref-text-hide\",nu" +
+                    "ll,\"reftxt refhide\",\"refshow\");initializeMultiShowHideToggleButtons(!0,!0,\"shbid" +
+                    "\",\"show\",\"hide\",\"txt\",\"depshow\",\"dephide\");initializeMultiShowHideToggleButtons(" +
+                    "!0,!0,\"shbid\",\"show\",\"hide\",\"txt\",\"refshow\",\"refhide\")};");
             this.Write(@"</script>
 </head>
 <body>
 
-<a class=""top-table-showhide showhide"" href=""javascript:showOrHideElement('top-table-hideable', 'top-table-show', 'top-table-hide')"">
+<a id=""top-table-showhide"" class=""top-table-showhide showhide"">
 	<span id=""top-table-hide"">&#9664;</span>
 	<span id=""top-table-show"">&#9658;</span>
 </a>
 
 <div id=""top-table-hideable"">
-<table class=""top-table"">
+<table class=""top-table table-autostripe table-stripeclass:table-row-odd"">
 	<thead>
 		<tr class=""table-headers"">
-			<th></th>
+			<th colspan=1></th>
 			<th colspan=3>Asset Counts</th>
-			<th colspan=10>Mean Values for Built-Ins</th>
+			<th colspan=14>Mean Values for Built-Ins</th>
 		</tr>
 		<tr class=""header-headers"">
-			<th></th>
+			<th colspan=1></th>
 			<th colspan=3></th>
-			<th colspan=5>Main</th>
-			<th colspan=5>Lod</th></tr>
+			<th colspan=7>Main</th>
+			<th colspan=7>Lod</th></tr>
 		<tr class=""header-headers"">
-			<th></th>
+			<th colspan=1></th>
 			<th colspan=3></th>
-			<th colspan=3>Triangles</th><th colspan=2>Textures</th>
-			<th colspan=3>Triangles</th><th colspan=2>Textures</th>
+			<th colspan=1>Combined</th><th colspan=3>Triangles</th><th colspan=3>Textures</th>
+			<th colspan=1>Combined</th><th colspan=3>Triangles</th><th colspan=3>Textures</th>
 		</tr>
 		<tr class=""column-headers"">
 			<th class=""txt"">Type</th>
 			<th class=""num"">All</th><th class=""num"">Built-In</th><th class=""num"">Custom</th>
-			<th class=""num"">Count</th><th class=""num"">Volume</th><th class=""num"">Weight</th><th class=""num"">Dimensions</th><th class=""num"">Area</th>
-			<th class=""num"">Count</th><th class=""num"">Volume</th><th class=""num"">Weight</th><th class=""num"">Dimensions</th><th class=""num"">Area</th>
+			<th class=""num"">Weight</th><th class=""num"">Count</th><th class=""num"">Surface</th><th class=""num"">Weight</th><th class=""num"">Dimensions</th><th class=""num"">Area</th><th class=""num"">Weight</th>
+			<th class=""num"">Weight</th><th class=""num"">Count</th><th class=""num"">Surface</th><th class=""num"">Weight</th><th class=""num"">Dimensions</th><th class=""num"">Area</th><th class=""num"">Weight</th>
 		</tr>
 	</thead>
 	<tbody>
 		");
             
-            #line 48 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+            #line 51 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
 
 			foreach (AssetSizes sizes in MeanBuiltInAssetSizes)
 			{
@@ -218,105 +273,301 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer.Reporter.Template
             #line hidden
             this.Write("<tr>\r\n\t\t\t\t\t<td class=\"txt\">");
             
-            #line 52 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(sizes.Type));
+            #line 55 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(sizes.AssetType));
             
             #line default
             #line hidden
             this.Write("</td>\r\n\t\t\t\t\t<td class=\"txt\">");
             
-            #line 53 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+            #line 56 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(sizes.TotalAssetCount));
             
             #line default
             #line hidden
             this.Write("</td>\r\n\t\t\t\t\t<td class=\"txt\">");
             
-            #line 54 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+            #line 57 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(sizes.BuiltInAssetCount));
             
             #line default
             #line hidden
             this.Write("</td>\r\n\t\t\t\t\t<td class=\"txt\">");
             
-            #line 55 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+            #line 58 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(sizes.CustomAssetCount));
             
             #line default
             #line hidden
             this.Write("</td>\r\n\t\t\t\t\t<td class=\"num\">");
             
-            #line 56 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(sizes.TrianglesCount));
+            #line 59 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ if (sizes.Main.InitializedTriangles) { 
             
             #line default
             #line hidden
-            this.Write("</td>\r\n\t\t\t\t\t<td class=\"num\">");
-            
-            #line 57 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(sizes.TrianglesVolume));
-            
-            #line default
-            #line hidden
-            this.Write("</td>\r\n\t\t\t\t\t<td class=\"num\">");
-            
-            #line 58 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(sizes.TrianglesWeight));
-            
-            #line default
-            #line hidden
-            this.Write("</td>\r\n\t\t\t\t\t<td class=\"dim\">");
             
             #line 59 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(sizes.TexturesDimensions));
+            this.Write(this.ToStringHelper.ToStringWithCulture(sizes.Main.CombinedWeight));
+            
+            #line default
+            #line hidden
+            
+            #line 59 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ } 
             
             #line default
             #line hidden
             this.Write("</td>\r\n\t\t\t\t\t<td class=\"num\">");
             
             #line 60 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(sizes.TexturesArea));
+ if (sizes.Main.InitializedTriangles) { 
+            
+            #line default
+            #line hidden
+            
+            #line 60 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(sizes.Main.TrianglesCount));
+            
+            #line default
+            #line hidden
+            
+            #line 60 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ } 
             
             #line default
             #line hidden
             this.Write("</td>\r\n\t\t\t\t\t<td class=\"num\">");
             
             #line 61 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(sizes.LodTrianglesCount));
+ if (sizes.Main.InitializedTriangles) { 
+            
+            #line default
+            #line hidden
+            
+            #line 61 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(sizes.Main.TrianglesSurfaceRounded));
+            
+            #line default
+            #line hidden
+            
+            #line 61 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ } 
             
             #line default
             #line hidden
             this.Write("</td>\r\n\t\t\t\t\t<td class=\"num\">");
             
             #line 62 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(sizes.LodTrianglesVolume));
+ if (sizes.Main.InitializedTriangles) { 
             
             #line default
             #line hidden
-            this.Write("</td>\r\n\t\t\t\t\t<td class=\"num\">");
             
-            #line 63 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(sizes.LodTrianglesWeight));
+            #line 62 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(sizes.Main.TrianglesWeight));
+            
+            #line default
+            #line hidden
+            
+            #line 62 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ } 
             
             #line default
             #line hidden
             this.Write("</td>\r\n\t\t\t\t\t<td class=\"dim\">");
             
+            #line 63 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ if (sizes.Main.InitializedTextures) { 
+            
+            #line default
+            #line hidden
+            
+            #line 63 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(sizes.Main.TexturesDimensions));
+            
+            #line default
+            #line hidden
+            
+            #line 63 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("</td>\r\n\t\t\t\t\t<td class=\"num\">");
+            
             #line 64 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(sizes.LodTexturesDimensions));
+ if (sizes.Main.InitializedTextures) { 
+            
+            #line default
+            #line hidden
+            
+            #line 64 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(sizes.Main.TexturesArea));
+            
+            #line default
+            #line hidden
+            
+            #line 64 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ } 
             
             #line default
             #line hidden
             this.Write("</td>\r\n\t\t\t\t\t<td class=\"num\">");
             
             #line 65 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(sizes.LodTexturesArea));
+ if (sizes.Main.InitializedBoth) { 
+            
+            #line default
+            #line hidden
+            
+            #line 65 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(sizes.Main.TexturesWeight));
+            
+            #line default
+            #line hidden
+            
+            #line 65 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("</td>\r\n\t\t\t\t\t<td class=\"num\">");
+            
+            #line 66 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ if (sizes.Lod.InitializedTriangles) { 
+            
+            #line default
+            #line hidden
+            
+            #line 66 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(sizes.Lod.CombinedWeight));
+            
+            #line default
+            #line hidden
+            
+            #line 66 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("</td>\r\n\t\t\t\t\t<td class=\"num\">");
+            
+            #line 67 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ if (sizes.Lod.InitializedTriangles) { 
+            
+            #line default
+            #line hidden
+            
+            #line 67 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(sizes.Lod.TrianglesCount));
+            
+            #line default
+            #line hidden
+            
+            #line 67 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("</td>\r\n\t\t\t\t\t<td class=\"num\">");
+            
+            #line 68 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ if (sizes.Lod.InitializedTriangles) { 
+            
+            #line default
+            #line hidden
+            
+            #line 68 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(sizes.Lod.TrianglesSurfaceRounded));
+            
+            #line default
+            #line hidden
+            
+            #line 68 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("</td>\r\n\t\t\t\t\t<td class=\"num\">");
+            
+            #line 69 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ if (sizes.Lod.InitializedTriangles) { 
+            
+            #line default
+            #line hidden
+            
+            #line 69 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(sizes.Lod.TrianglesWeight));
+            
+            #line default
+            #line hidden
+            
+            #line 69 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("</td>\r\n\t\t\t\t\t<td class=\"dim\">");
+            
+            #line 70 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ if (sizes.Lod.InitializedTextures) { 
+            
+            #line default
+            #line hidden
+            
+            #line 70 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(sizes.Lod.TexturesDimensions));
+            
+            #line default
+            #line hidden
+            
+            #line 70 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("</td>\r\n\t\t\t\t\t<td class=\"num\">");
+            
+            #line 71 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ if (sizes.Lod.InitializedTextures) { 
+            
+            #line default
+            #line hidden
+            
+            #line 71 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(sizes.Lod.TexturesArea));
+            
+            #line default
+            #line hidden
+            
+            #line 71 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("</td>\r\n\t\t\t\t\t<td class=\"num\">");
+            
+            #line 72 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ if (sizes.Lod.InitializedBoth) { 
+            
+            #line default
+            #line hidden
+            
+            #line 72 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(sizes.Lod.TexturesWeight));
+            
+            #line default
+            #line hidden
+            
+            #line 72 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ } 
             
             #line default
             #line hidden
             this.Write("</td>\r\n\t\t\t\t</tr>");
             
-            #line 66 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+            #line 73 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
 
 			}
 		
@@ -327,203 +578,482 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer.Reporter.Template
 </table>
 </div>
 
-<table class=""main-table table-autosort table-autofilter table-filtered-rowcount:main-table-visible-rowspan table-rowcount:main-table-total-rowspan"">
+<table class=""main-table table-autosort table-autofilter table-filtered-rowcount:main-table-visible-rowspan table-rowcount:main-table-total-rowspan table-autostripe table-stripeclass:table-row-odd"">
 	<thead>
-		<tr class=""table-headers""><th colspan=15>Assets (<span id=""main-table-visible-rowspan"">");
+		<tr class=""table-headers""><th colspan=22>Assets (<span id=""main-table-visible-rowspan"">");
             
-            #line 75 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Assets.Count));
+            #line 82 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(AssetCount));
             
             #line default
             #line hidden
             this.Write("</span>/<span id=\"main-table-total-rowspan\">");
             
-            #line 75 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Assets.Count));
+            #line 82 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(AssetCount));
             
             #line default
             #line hidden
-            this.Write("</span>)</th></tr>\r\n\t\t<tr class=\"header-headers\">\r\n\t\t\t<th colspan=3></th>\r\n\t\t\t<th" +
-                    " colspan=5>Main</th>\r\n\t\t\t<th colspan=5>Lod</th>\r\n\t\t\t<th colspan=2></th>\r\n\t\t</tr>" +
-                    "\r\n\t\t<tr class=\"header-headers\">\r\n\t\t\t<th colspan=3></th>\r\n\t\t\t<th colspan=3>Triang" +
-                    "les</th><th colspan=2>Textures</th>\r\n\t\t\t<th colspan=3>Triangles</th><th colspan=" +
-                    "2>Textures</th>\r\n\t\t\t<th colspan=2>\r\n\t\t\t\tReferences\r\n\t\t\t\t<a class=\"showhide\" id=\"" +
-                    "ref-text-hide\" href=\"javascript:hideElements(\'ref-text-show\', \'ref-text-hide\', \'" +
-                    "ref-text\')\">&#9664;</a>\r\n\t\t\t\t<a class=\"showhide\" id=\"ref-text-show\" href=\"javasc" +
-                    "ript:showElements(\'ref-text-show\', \'ref-text-hide\', \'ref-text\')\">&#9658;</a>\r\n\t\t" +
-                    "\t</th>\r\n\t\t</tr>\r\n\t\t<tr class=\"column-headers\">\r\n\t\t\t<th class=\"txt table-sortable" +
-                    ":alphanumeric table-filterable\">Source</th><th class=\"txt table-sortable:alphanu" +
-                    "meric table-filterable\">Type</th><th class=\"txt table-sortable:alphanumeric\">Nam" +
-                    "e</th>\r\n\t\t\t<th class=\"num table-sortable:numeric\">Count</th><th class=\"num table" +
-                    "-sortable:numeric\">Volume</th><th class=\"num table-sortable:numeric\">Weight</th>" +
-                    "<th class=\"num table-sortable:alphanumeric\">Dimensions</th><th class=\"num table-" +
-                    "sortable:numeric\">Area</th>\r\n\t\t\t<th class=\"num table-sortable:numeric\">Count</th" +
-                    "><th class=\"num table-sortable:numeric\">Volume</th><th class=\"num table-sortable" +
-                    ":numeric\">Weight</th><th class=\"num table-sortable:alphanumeric\">Dimensions</th>" +
-                    "<th class=\"num table-sortable:numeric\">Area</th>\r\n\t\t\t<th class=\"num table-sortab" +
-                    "le:numeric\">Count</th>\r\n\t\t\t<th class=\"txt table-sortable:alphanumeric\">Props &am" +
-                    "p; Trees</th>\r\n\t\t</tr>\r\n\t</thead>\r\n\t<tbody>\r\n\t\t");
+            this.Write("</span>)</th></tr>\r\n\t\t<tr class=\"header-headers\">\r\n\t\t\t<th colspan=4></th>\r\n\t\t\t<th" +
+                    " colspan=7>Main</th>\r\n\t\t\t<th colspan=7>Lod</th>\r\n\t\t\t<th colspan=4></th>\r\n\t\t</tr>" +
+                    "\r\n\t\t<tr class=\"header-headers\">\r\n\t\t\t<th colspan=4></th>\r\n\t\t\t<th colspan=1>Combin" +
+                    "ed</th><th colspan=3>Triangles</th><th colspan=3>Textures</th>\r\n\t\t\t<th colspan=1" +
+                    ">Combined</th><th colspan=3>Triangles</th><th colspan=3>Textures</th>\r\n\t\t\t<th co" +
+                    "lspan=2>\r\n\t\t\t\tUsages\r\n\t\t\t\t<a class=\"showhide\" id=\"dep-text-hide\">&#9664;</a>\r\n\t\t" +
+                    "\t\t<a class=\"showhide\" id=\"dep-text-show\">&#9658;</a>\r\n\t\t\t</th>\r\n\t\t\t<th colspan=2" +
+                    ">\r\n\t\t\t\tReferences\r\n\t\t\t\t<a class=\"showhide\" id=\"ref-text-hide\">&#9664;</a>\r\n\t\t\t\t<" +
+                    "a class=\"showhide\" id=\"ref-text-show\">&#9658;</a>\r\n\t\t\t</th>\r\n\t\t</tr>\r\n\t\t<tr clas" +
+                    "s=\"column-headers\">\r\n\t\t\t<th class=\"txt table-sortable:alphanumeric table-filtera" +
+                    "ble\">Source<span/></th>\r\n\t\t\t<th class=\"txt table-sortable:alphanumeric table-fil" +
+                    "terable\">Type<span/></th>\r\n\t\t\t<th class=\"txt table-sortable:alphanumeric table-f" +
+                    "ilterable\">Category<span/></th>\r\n\t\t\t<th class=\"txt table-sortable:alphanumeric\">" +
+                    "Title</th>\r\n\t\t\t<th class=\"num table-sortable:numeric\">Weight</th><th class=\"num " +
+                    "table-sortable:numeric\">Count</th><th class=\"num table-sortable:numeric\">Surface" +
+                    "</th><th class=\"num table-sortable:numeric\">Weight</th><th class=\"num table-sort" +
+                    "able:alphanumeric\">Dimensions</th><th class=\"num table-sortable:numeric\">Area</t" +
+                    "h><th class=\"num table-sortable:numeric\">Weight</th>\r\n\t\t\t<th class=\"num table-so" +
+                    "rtable:numeric\">Weight</th><th class=\"num table-sortable:numeric\">Count</th><th " +
+                    "class=\"num table-sortable:numeric\">Surface</th><th class=\"num table-sortable:num" +
+                    "eric\">Weight</th><th class=\"num table-sortable:alphanumeric\">Dimensions</th><th " +
+                    "class=\"num table-sortable:numeric\">Area</th><th class=\"num table-sortable:numeri" +
+                    "c\">Weight</th>\r\n\t\t\t<th class=\"num table-sortable:numeric\">Count</th><th class=\"t" +
+                    "xt table-sortable:alphanumeric\">Assets</th>\r\n\t\t\t<th class=\"num table-sortable:nu" +
+                    "meric\">Count</th><th class=\"txt table-sortable:alphanumeric\">Assets</th>\r\n\t\t</tr" +
+                    ">\r\n\t</thead>\r\n\t<tbody>\r\n\t\t");
             
-            #line 101 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
- foreach (AssetInfo asset in Assets) { 
+            #line 116 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+
+        {
+			int assetCount = 0;
+			foreach (AssetInfo asset in Assets) 
+			{
+				assetCount++; 
             
             #line default
             #line hidden
-            this.Write("\t\t\t<tr>\r\n\t\t\t\t<td class=\"txt\">");
+            this.Write("\r\n\t\t\t\t<tr>\r\n\t\t\t\t\t<td class=txt>");
             
-            #line 103 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+            #line 124 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(asset.SourceType));
             
             #line default
             #line hidden
-            this.Write("</td>\r\n\t\t\t\t<td class=\"txt\">");
-            
-            #line 104 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(asset.Type));
-            
-            #line default
-            #line hidden
-            this.Write("</td>\r\n\t\t\t\t<td class=\"name\">");
-            
-            #line 105 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
- 
-					if (asset.SteamId != 0) 
-					{
-						Write(String.Format("<a href=\"{0}\" target=\"_blank\">{1}</a>", asset.SteamLink, asset.EscapedName));
-					}
-					else
-					{
-						Write(asset.EscapedName);
-					}
-				
-            
-            #line default
-            #line hidden
-            this.Write("</td>\r\n\t\t\t\t<td class=\"num\">");
-            
-            #line 115 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(asset.TrianglesSize.Count));
-            
-            #line default
-            #line hidden
-            this.Write("</td>\r\n\t\t\t\t<td class=\"num\">");
-            
-            #line 116 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(asset.TrianglesSize.Volume));
-            
-            #line default
-            #line hidden
-            this.Write("</td>\r\n\t\t\t\t<td class=\"num\">");
-            
-            #line 117 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(asset.TrianglesSize.Weight));
-            
-            #line default
-            #line hidden
-            this.Write("</td>\r\n\t\t\t\t<td class=\"dim\">");
-            
-            #line 118 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(asset.TextureSize.Dimensions));
-            
-            #line default
-            #line hidden
-            this.Write("</td>\r\n\t\t\t\t<td class=\"num\">");
-            
-            #line 119 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(asset.TextureSize.Area));
-            
-            #line default
-            #line hidden
-            this.Write("</td>\r\n\t\t\t\t<td class=\"num\">");
-            
-            #line 120 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(asset.LodTrianglesSize.Count));
-            
-            #line default
-            #line hidden
-            this.Write("</td>\r\n\t\t\t\t<td class=\"num\">");
-            
-            #line 121 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(asset.LodTrianglesSize.Volume));
-            
-            #line default
-            #line hidden
-            this.Write("</td>\r\n\t\t\t\t<td class=\"num\">");
-            
-            #line 122 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(asset.LodTrianglesSize.Weight));
-            
-            #line default
-            #line hidden
-            this.Write("</td>\r\n\t\t\t\t<td class=\"dim\">");
-            
-            #line 123 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(asset.LodTextureSize.Dimensions));
-            
-            #line default
-            #line hidden
-            this.Write("</td>\r\n\t\t\t\t<td class=\"num\">");
-            
-            #line 124 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(asset.LodTextureSize.Area));
-            
-            #line default
-            #line hidden
-            this.Write("</td>\r\n\t\t\t\t<td class=\"num\">");
+            this.Write("</td>\r\n\t\t\t\t\t<td class=txt>");
             
             #line 125 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(asset.AssetType));
+            
+            #line default
+            #line hidden
+            this.Write("</td>\r\n\t\t\t\t\t<td class=txt>");
+            
+            #line 126 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(asset.EscapedCategory));
+            
+            #line default
+            #line hidden
+            this.Write("</td>\r\n\t\t\t\t\t<td class=nam>");
+            
+            #line 127 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ 
+					{
+						if (asset.SteamId != 0) 
+						{
+							Write("<a href=\"{0}\" target=_blank>{1}</a>", asset.SteamLink, asset.EscapedTitle);
+						}
+						else
+						{
+							Write(asset.EscapedTitle);
+						}
+					}
+					
+            
+            #line default
+            #line hidden
+            this.Write("</td>\r\n\t\t\t\t\t<td class=num>");
+            
+            #line 139 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ if (asset.Main.InitializedTriangles) { 
+            
+            #line default
+            #line hidden
+            
+            #line 139 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(asset.Main.CombinedWeight));
+            
+            #line default
+            #line hidden
+            
+            #line 139 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("</td>\r\n\t\t\t\t\t<td class=num>");
+            
+            #line 140 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ if (asset.Main.InitializedTriangles) { 
+            
+            #line default
+            #line hidden
+            
+            #line 140 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(asset.Main.TrianglesCount));
+            
+            #line default
+            #line hidden
+            
+            #line 140 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("</td>\r\n\t\t\t\t\t<td class=num>");
+            
+            #line 141 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ if (asset.Main.InitializedTriangles) { 
+            
+            #line default
+            #line hidden
+            
+            #line 141 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(asset.Main.TrianglesSurfaceRounded));
+            
+            #line default
+            #line hidden
+            
+            #line 141 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("</td>\r\n\t\t\t\t\t<td class=num>");
+            
+            #line 142 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ if (asset.Main.InitializedTriangles) { 
+            
+            #line default
+            #line hidden
+            
+            #line 142 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(asset.Main.TrianglesWeight));
+            
+            #line default
+            #line hidden
+            
+            #line 142 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("</td>\r\n\t\t\t\t\t<td class=dim>");
+            
+            #line 143 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ if (asset.Main.InitializedTexture) { 
+            
+            #line default
+            #line hidden
+            
+            #line 143 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(asset.Main.TextureDimensions));
+            
+            #line default
+            #line hidden
+            
+            #line 143 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("</td>\r\n\t\t\t\t\t<td class=num>");
+            
+            #line 144 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ if (asset.Main.InitializedTexture) { 
+            
+            #line default
+            #line hidden
+            
+            #line 144 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(asset.Main.TextureArea));
+            
+            #line default
+            #line hidden
+            
+            #line 144 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("</td>\r\n\t\t\t\t\t<td class=num>");
+            
+            #line 145 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ if (asset.Main.InitializedTexture) { 
+            
+            #line default
+            #line hidden
+            
+            #line 145 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(asset.Main.TextureWeight));
+            
+            #line default
+            #line hidden
+            
+            #line 145 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("</td>\r\n\t\t\t\t\t<td class=num>");
+            
+            #line 146 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ if (asset.FallbackLod.InitializedBoth) { 
+            
+            #line default
+            #line hidden
+            
+            #line 146 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(asset.FallbackLod.CombinedWeight));
+            
+            #line default
+            #line hidden
+            
+            #line 146 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("</td>\r\n\t\t\t\t\t<td class=num>");
+            
+            #line 147 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ if (asset.Lod.InitializedTriangles) { 
+            
+            #line default
+            #line hidden
+            
+            #line 147 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(asset.Lod.TrianglesCount));
+            
+            #line default
+            #line hidden
+            
+            #line 147 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("</td>\r\n\t\t\t\t\t<td class=num>");
+            
+            #line 148 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ if (asset.Lod.InitializedTriangles) { 
+            
+            #line default
+            #line hidden
+            
+            #line 148 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(asset.Lod.TrianglesSurfaceRounded));
+            
+            #line default
+            #line hidden
+            
+            #line 148 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("</td>\r\n\t\t\t\t\t<td class=num>");
+            
+            #line 149 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ if (asset.FallbackLod.InitializedTriangles) { 
+            
+            #line default
+            #line hidden
+            
+            #line 149 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(asset.FallbackLod.TrianglesWeight));
+            
+            #line default
+            #line hidden
+            
+            #line 149 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("</td>\r\n\t\t\t\t\t<td class=dim>");
+            
+            #line 150 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ if (asset.Lod.InitializedTexture) { 
+            
+            #line default
+            #line hidden
+            
+            #line 150 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(asset.Lod.TextureDimensions));
+            
+            #line default
+            #line hidden
+            
+            #line 150 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("</td>\r\n\t\t\t\t\t<td class=num>");
+            
+            #line 151 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ if (asset.Lod.InitializedTexture) { 
+            
+            #line default
+            #line hidden
+            
+            #line 151 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(asset.Lod.TextureArea));
+            
+            #line default
+            #line hidden
+            
+            #line 151 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("</td>\r\n\t\t\t\t\t<td class=num>");
+            
+            #line 152 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ if (asset.FallbackLod.InitializedBoth) { 
+            
+            #line default
+            #line hidden
+            
+            #line 152 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(asset.FallbackLod.TextureWeight));
+            
+            #line default
+            #line hidden
+            
+            #line 152 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("</td>\r\n\t\t\t\t\t<td class=num>");
+            
+            #line 153 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(asset.DependentCount));
+            
+            #line default
+            #line hidden
+            this.Write("</td>\r\n\t\t\t\t\t<td class=txt>");
+            
+            #line 154 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+
+					{
+						int references = asset.DependentCount;
+						if (references > 0)
+						{
+							string id = assetCount.ToString() + "dep";
+							Write("<a shbid={0} class=dephide id=hide{0}>&#9664;</a>", id);
+							Write("<a shbid={0} class=depshow id=show{0}>&#9658;</a>", id);
+							Write("<span class=deptxt id=txt{0}>", id);
+
+							foreach (Reference reference in asset.Dependents.OrderBy(r => r.ReferenceType).ThenBy(r => r.Name.ToLowerInvariant()))
+							{
+								references --;
+
+								Write("<span class=name>");
+
+								if (reference.SteamId > 0)
+								{
+									Write("<a href=\"{0}\" target=_blank>{1}</a>", reference.SteamLink, reference.EscapedTitle);
+								}
+								else
+								{
+									Write(reference.EscapedTitle);
+								}
+
+								Write("</span>");
+
+								if (references > 0)
+								{
+									Write("</br>");
+								}
+							}
+
+							Write("</span>");
+						}
+					}
+					
+            
+            #line default
+            #line hidden
+            this.Write("</span></td>\r\n\t\t\t\t\t<td class=num>");
+            
+            #line 191 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(asset.ReferenceCount));
             
             #line default
             #line hidden
-            this.Write("</td>\r\n\t\t\t\t<td class=\"txt\"><span class=\"ref-text\">");
+            this.Write("</td>\r\n\t\t\t\t\t<td class=txt><span class=rtxt>");
             
-            #line 126 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
-
-					int references = asset.ReferenceCount;
-					if (references > 0)
+            #line 192 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ 
 					{
-						foreach (Reference reference in asset.References.OrderBy(a => a.ReferenceType).ThenBy(a => a.Name))
+						int references = asset.ReferenceCount;
+						if (references > 0)
 						{
-							references --;
+							string id = assetCount.ToString() + "ref";
+							Write("<a shbid={0} class=refhide id=hide{0}>&#9664;</a>", id);
+							Write("<a shbid={0} class=refshow id=show{0}>&#9658;</a>", id);
+							Write("<span class=reftxt id=txt{0}>", id);
 
-							Write("<span class=\"name\">");
-
-							if (reference.SteamId > 0)
+							foreach (Reference reference in asset.References.OrderBy(r => r.ReferenceType).ThenBy(r => r.Name.ToLowerInvariant()))
 							{
-								Write(String.Format("<a href=\"{0}\" target=\"_blank\">{1}</a>", reference.SteamLink, reference.EscapedName));
-							}
-							else
-							{
-								Write(reference.EscapedName);
-							}
+								references --;
 
-							if (reference.Missing)
-							{
-								Write(" (missing!)");
-							}
+								if (reference.Missing)
+								{
+									Write("<span class=miss>");
+								}
 
-							if (references > 0)
-                            {
-								Write(";");
-                            }
+								Write("<span class=name>");
+								Write(reference.ReferenceType);
+								Write(": ");
+
+								if (reference.SteamId > 0)
+								{
+									Write("<a href=\"{0}\" target=_blank>{1}</a>", reference.SteamLink, reference.EscapedTitle);
+								}
+								else
+								{
+									Write(reference.EscapedTitle);
+								}
+
+								Write("</span>");
+
+								if (reference.Missing)
+								{
+									Write("</span>");
+								}
+
+								if (references > 0)
+								{
+									Write("<br/>");
+								}
+							}
 
 							Write("</span>");
-
-							if (references > 0)
-                            {
-								Write(" ");
-                            }
 						}
 					}
-				
+					
             
             #line default
             #line hidden
-            this.Write("</span></td>\r\n\t\t\t</tr>\r\n\t\t");
+            this.Write("</span></td>\r\n\t\t\t\t</tr>\r\n\t\t\t\t");
             
-            #line 165 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
- } 
+            #line 242 "D:\Jonas\Development\Cities Skylines\Mods\Assetteer\wtmcsAsseteer\Reporter\Template\HtmlReportTemplate.tt"
+ 
+			} 
+		} 
             
             #line default
             #line hidden

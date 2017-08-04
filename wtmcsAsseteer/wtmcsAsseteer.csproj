@@ -55,12 +55,14 @@
   <ItemGroup>
     <Compile Include="Build\PreBuildStamps.cs" />
     <Compile Include="Pieces\PrefabHelper.cs" />
+    <Compile Include="Pieces\SerializableSettings.cs" />
     <Compile Include="Reporter\AssetSizes.cs" />
     <Compile Include="Reporter\AssetInfo.cs" />
     <Compile Include="Reporter\AssetReporter.cs" />
     <Compile Include="Modder\BuildingAsseteer.cs" />
     <Compile Include="Pieces\BuildingExtensions.cs" />
     <Compile Include="Modder\Configuration.cs" />
+    <Compile Include="Reporter\AssetValues.cs" />
     <Compile Include="Reporter\BuildingAssetInfo.cs" />
     <Compile Include="Reporter\CitizenAssetInfo.cs" />
     <Compile Include="Reporter\Template\HtmlReportTemplate.cs">
@@ -71,11 +73,11 @@
     <Compile Include="Reporter\Template\HtmlReportTemplateValues.cs" />
     <Compile Include="Reporter\ObjectInfo.cs" />
     <Compile Include="Reporter\PropAssetInfo.cs" />
-    <Compile Include="Reporter\Rectangle.cs" />
     <Compile Include="Reporter\Reference.cs" />
     <Compile Include="Reporter\TreeAssetInfo.cs" />
-    <Compile Include="Reporter\Triangles.cs" />
     <Compile Include="Reporter\VehicleAssetInfo.cs" />
+    <Compile Include="Reporter\VehicleAssetSubMeshInfo.cs" />
+    <Compile Include="Reporter\VehicleAssetSubVehicleInfo.cs" />
     <Compile Include="Util\Extensions.cs" />
     <Compile Include="Util\FileSystem.cs" />
     <Compile Include="Pieces\Global.cs" />
@@ -114,6 +116,7 @@
     <Content Include="Reporter\Template\HtmlReportTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>HtmlReportTemplate.cs</LastGenOutput>
+      <TransformOnBuild>False</TransformOnBuild>
     </Content>
     <Content Include="Reporter\Template\table.js" />
     <Content Include="Reporter\Template\table.min.js" />

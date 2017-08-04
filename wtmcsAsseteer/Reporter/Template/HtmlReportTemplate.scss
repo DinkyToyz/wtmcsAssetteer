@@ -1,11 +1,16 @@
-﻿$wtmcsblack:  		#060607;
-$wtmcsbright: 		#01b9ff;
-$wtmcsmedium: 		#0a5486;
-$wtmcsdark:   		#114069;
-$wtmcswhite:  		#91d8ff;
-$wtmcsmilddark:		#103474;
-$wtmcsmild:		    #2c6bad;
-$wtmcsmildlight:	#368cd0;
+﻿$wtmcsblack: #060607;
+$wtmcsbright: #01b9ff;
+$wtmcsmedium: #0a5486;
+$wtmcsdark: #114069;
+$wtmcswhite: #91d8ff;
+$wtmcsmilddark: #103474;
+$wtmcsmild: #2c6bad;
+$wtmcsmildlight: #368cd0;
+
+$alert-color: #aa0132;
+$success-color: #6a9519;
+$warning-color: #e05a10;
+$info-color: #0085ba;
 
 $font: sans-serif;
 
@@ -19,8 +24,8 @@ $table-border-color: $wtmcsmedium;
 $header-background-color: $wtmcsmilddark;
 $header-text-color: $wtmcswhite;
 
-$odd-row-background-color: $wtmcsmildlight;
-$even-row-background-color: $wtmcsmild;
+$even-row-background-color: $wtmcsmildlight;
+$odd-row-background-color: $wtmcsmild;
 
 body {
     font-family: $font;
@@ -56,11 +61,11 @@ tbody {
     color: $table-text-color;
     background-color: $table-background-color;
 
-    tr:nth-child(even) {
+    tr {
         background-color: $even-row-background-color;
     }
 
-    tr:nth-child(odd) {
+    tr.table-row-odd {
         background-color: $odd-row-background-color;
     }
 }
@@ -96,7 +101,7 @@ td.txt, th.txt {
     text-align: left;
 }
 
-td.name {
+td.nam {
     @extend td.txt;
     @extend span.name;
 }
@@ -113,6 +118,12 @@ th.table-sorted-asc:before {
     content: "\25BC\25B3";
 }
 
+th.table-filtered span:after {
+    display: block;
+    float: right;
+    content: "\2314";
+}
+
 select.table-autofilter {
     background-color: $header-background-color;
     color: $wtmcsbright;
@@ -120,15 +131,24 @@ select.table-autofilter {
     outline-color: $table-border-color;
 }
 
+.link, table.main-table tr.column-headers th {
+    cursor: pointer;
+}
+
 .showhide {
     color: $wtmcsbright;
     text-decoration: none;
+}
+
+.depshow, .dephide, .refshow, .refhide {
+    @extend .showhide;
+    float: right;
 }
 
 .top-table-showhide {
     float: left;
 }
 
-#top-table-show, #ref-text-show {
-    display: none;
+.miss {
+    color: $alert-color;
 }

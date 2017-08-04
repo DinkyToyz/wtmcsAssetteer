@@ -39,6 +39,11 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer
         public static bool LogToFile = false;
 
         /// <summary>
+        /// True for logging to debug panel.
+        /// </summary>
+        public static bool LogToPanel = true;
+
+        /// <summary>
         /// The number of lines to buffer.
         /// </summary>
         private static int bufferLines = 5120;
@@ -84,7 +89,7 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer
             {
                 Log.LogToFile = true;
                 Log.logAllToFile = true;
-                Log.lineBuffer = new List<string>();
+                //Log.lineBuffer = new List<string>();
             }
 
             try
@@ -399,7 +404,7 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer
 
                 msg.Insert(0, "] ").Insert(0, Library.Name).Insert(0, "[");
 
-                if (level != Level.None && level != Level.All && level <= LogLevel)
+                if (level != Level.None && level < Level.Debug && level <= LogLevel && LogToPanel && !LogToFile)
                 {
                     try
                     {
@@ -513,12 +518,24 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer
             /// <summary>
             /// The string escape regex.
             /// </summary>
-            private static Regex escapeRex = new Regex("([;^\"])");
+            private static readonly Regex escapeRex = new Regex("([;^\"])");
 
             /// <summary>
             /// The information list.
             /// </summary>
             private StringBuilder info = new StringBuilder();
+
+            /// <summary>
+            /// Initializes a new instance of the <see cref="InfoList"/> class.
+            /// </summary>
+            /// <param name="prefix">The prefix.</param>
+            public InfoList(string prefix = null)
+            {
+                if (!String.IsNullOrEmpty(prefix))
+                {
+                    this.Add(prefix);
+                }
+            }
 
             /// <summary>
             /// Adds the info to the list.

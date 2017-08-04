@@ -11,13 +11,23 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer
     public static class Extensions
     {
         /// <summary>
+        /// The ASCII capitals pattern.
+        /// </summary>
+        private static readonly Regex ASCIICapitalsPattern = new Regex("[^A-Z]", RegexOptions.Compiled);
+
+        /// <summary>
+        /// The new lines pattern
+        /// </summary>
+        private static readonly Regex NewLinesPattern = new Regex("[\r\n]+", RegexOptions.Compiled);
+
+        /// <summary>
         /// Get only ASCII capitals.
         /// </summary>
         /// <param name="text">The text.</param>
         /// <returns>The ASCII capitals.</returns>
         public static string ASCIICapitals(this string text)
         {
-            return Regex.Replace(text, "[^A-Z]", "");
+            return ASCIICapitalsPattern.Replace(text, "");
         }
 
         /// <summary>
@@ -60,7 +70,7 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer
         /// <returns>The clean text.</returns>
         public static string CleanNewLines(this string text)
         {
-            return Regex.Replace(text, "[\r\n]+", "\n");
+            return NewLinesPattern.Replace(text, "\n");
         }
 
         /// <summary>
@@ -80,7 +90,7 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer
         /// <returns>The conforming text.</returns>
         public static string ConformNewlines(this string text)
         {
-            return Regex.Replace(text, "[\r\n]+", Environment.NewLine);
+            return NewLinesPattern.Replace(text, Environment.NewLine);
         }
 
         /// <summary>

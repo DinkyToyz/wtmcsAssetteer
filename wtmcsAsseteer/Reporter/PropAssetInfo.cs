@@ -19,7 +19,7 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer.Reporter
         /// Initializes a new instance of the <see cref="PropAssetInfo"/> class.
         /// </summary>
         /// <param name="prefab">The prefab.</param>
-        public PropAssetInfo(PrefabInfo prefab) : base(prefab)
+        public PropAssetInfo(PropInfo prefab) : base(prefab)
         { }
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer.Reporter
         /// <value>
         /// The collection.
         /// </value>
-        public static IEnumerable<AssetInfo> Collection => CollectPrefabs<PropInfo, PropAssetInfo>();
+        public static IEnumerable<AssetInfo> Collection => CollectPrefabs<PropInfo, PropAssetInfo>(p => IncludePrefab(p));
 
         /// <summary>
         /// Gets the prefab count.
@@ -44,19 +44,7 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer.Reporter
         /// <value>
         /// The type.
         /// </value>
-        public override string Type => "Prop";
-
-        /// <summary>
-        /// Gets the lod material.
-        /// </summary>
-        /// <param name="prefab">The prefab.</param>
-        /// <returns>
-        /// The lod material.
-        /// </returns>
-        protected override Material GetLodMaterial(PrefabInfo prefab)
-        {
-            return ((PropInfo)prefab).m_lodMaterial;
-        }
+        public override AssetTypes AssetType => AssetInfo.AssetTypes.Prop;
 
         /// <summary>
         /// Gets the lod mesh.
@@ -67,19 +55,19 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer.Reporter
         /// </returns>
         protected override Mesh GetLodMesh(PrefabInfo prefab)
         {
-            return ((PropInfo)prefab).m_lodMesh;
+            return GetMeshWithFallback(((PropInfo)prefab).m_lodObject, ((PropInfo)prefab).m_lodMesh);
         }
 
         /// <summary>
-        /// Gets the material.
+        /// Gets the lod texture.
         /// </summary>
         /// <param name="prefab">The prefab.</param>
         /// <returns>
-        /// The material.
+        /// The lod texture.
         /// </returns>
-        protected override Material GetMaterial(PrefabInfo prefab)
+        protected override Texture GetLodTexture(PrefabInfo prefab)
         {
-            return ((PropInfo)prefab).m_material;
+            return GetTextureWithFallback(((PropInfo)prefab).m_lodObject, ((PropInfo)prefab).m_lodMaterial);
         }
 
         /// <summary>
@@ -89,39 +77,53 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer.Reporter
         /// <returns>
         /// The mesh.
         /// </returns>
-        protected override Mesh GetMesh(PrefabInfo prefab)
+        protected override Mesh GetMainMesh(PrefabInfo prefab)
         {
-            return ((PropInfo)prefab).m_mesh;
+            return GetMeshWithFallback(prefab, ((PropInfo)prefab).m_mesh);
+        }
+
+        /// <summary>
+        /// Gets the texture.
+        /// </summary>
+        /// <param name="prefab">The prefab.</param>
+        /// <returns>
+        /// The texture.
+        /// </returns>
+        protected override Texture GetMainTexture(PrefabInfo prefab)
+        {
+            return GetTextureWithFallback(prefab, ((PropInfo)prefab).m_material);
         }
 
         /// <summary>
         /// Initializes the current instance with values from specified prefab.
         /// </summary>
         /// <param name="prefab">The prefab.</param>
-        protected override void Initialize(PrefabInfo prefab)
+        protected override bool InitializeData(PrefabInfo prefab)
         {
-            base.Initialize(prefab);
+            bool success = base.InitializeData(prefab);
 
-            if (!this.Initialized)
+            if (((PropInfo)prefab).m_variations != null)
             {
-                return;
-            }
-
-            PropInfo prop = (PropInfo)prefab;
-
-            if (prop.m_variations != null)
-            {
-                for (int i = 0; i < prop.m_variations.Length; i++)
+                for (int i = 0; i < ((PropInfo)prefab).m_variations.Length; i++)
                 {
-                    if ((UnityEngine.Object)prop.m_variations[i].m_prop != (UnityEngine.Object)null)
+                    if ((UnityEngine.Object)((PropInfo)prefab).m_variations[i].m_prop != (UnityEngine.Object)null)
                     {
-                        bool propIs = prop.m_variations[i].m_prop.m_prefabInitialized ||
-                                      PrefabCollection<PropInfo>.FindLoaded(prop.m_variations[i].m_prop.gameObject.name) != null;
-
-                        this.ReferencedProps.Add(new Reference(Reference.ReferenceTypes.Variation, prop.m_variations[i].m_prop.gameObject.name, propIs));
+                        this.AddReferencedAsset<PropInfo>(Reference.ReferenceTypes.Variation, ((PropInfo)prefab).m_variations[i].m_prop);
                     }
                 }
             }
+
+            return success;
+        }
+
+        /// <summary>
+        /// Check if the prefab should be included.
+        /// </summary>
+        /// <param name="prefab">The prefab.</param>
+        /// <returns>True to include.</returns>
+        private static bool IncludePrefab(PrefabInfo prefab)
+        {
+            return ((PropInfo)prefab).m_hasRenderer && !((PropInfo)prefab).m_isMarker;
         }
     }
 }

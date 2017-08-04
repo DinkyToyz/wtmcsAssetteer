@@ -1,6 +1,7 @@
 ﻿using ICities;
 using System;
 using WhatThe.Mods.CitiesSkylines.Asseteer.Modder;
+using WhatThe.Mods.CitiesSkylines.Asseteer.Reporter;
 
 namespace WhatThe.Mods.CitiesSkylines.Asseteer
 {
@@ -38,47 +39,56 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer
             {
                 Log.Debug(this, "OnLevelLoaded", "Begin");
 
+                Global.LevelLoaded = true;
+
                 try
                 {
                     // Save asset report.
                     try
                     {
-                        Reporter.AssetReporter.SaveReport();
+                        AssetReporter.SaveReports(true, Global.Settings.CreateHtmlReportOnLevelLoaded, Global.Settings.CreateDataReportOnLevelLoaded);
                     }
                     catch (Exception ex)
                     {
-                        Log.Error(this, "OnLevelLoaded", ex, "SaveReport");
+                        Log.Error(this, "OnLevelLoaded", ex);
                     }
 
                     // Save assets and objects.
-                    try
+                    if (Global.UseAseteers)
                     {
-                        foreach (IAsseteer asseteer in Global.Asseteers)
+                        try
                         {
-                            // Save assets.
-                            try
+                            foreach (IAsseteer asseteer in Global.Asseteers)
                             {
-                                asseteer.SaveAssets();
-                            }
-                            catch (Exception ex)
-                            {
-                                Log.Error(this, "OnLevelLoaded", ex, "SaveAssets", asseteer.GetType().ToString());
-                            }
+                                Log.Debug(this, "OnLevelLoaded", "Save", asseteer.GetType().ToString());
 
-                            // Save objects.
-                            try
-                            {
-                                asseteer.SaveObjects();
-                            }
-                            catch (Exception ex)
-                            {
-                                Log.Error(this, "OnLevelLoaded", ex, "SaveObjects", asseteer.GetType().ToString());
+                                // Save assets.
+                                try
+                                {
+                                    Log.Debug(this, "OnLevelLoaded", asseteer.GetType().ToString());
+                                    asseteer.SaveAssets();
+                                }
+                                catch (Exception ex)
+                                {
+                                    Log.Error(this, "OnLevelLoaded", ex, asseteer.GetType().ToString());
+                                }
+
+                                // Save objects.
+                                try
+                                {
+                                    Log.Debug(this, "OnLevelLoaded", asseteer.GetType().ToString());
+                                    asseteer.SaveObjects();
+                                }
+                                catch (Exception ex)
+                                {
+                                    Log.Error(this, "OnLevelLoaded", ex, asseteer.GetType().ToString());
+                                }
                             }
                         }
-                    }
-                    catch (Exception ex)
-                    {
-                        Log.Error(this, "OnLevelLoaded", ex, "SaveAssetsAndObjects");
+                        catch (Exception ex)
+                        {
+                            Log.Error(this, "OnLevelLoaded", ex);
+                        }
                     }
                 }
                 finally
@@ -93,6 +103,30 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer
             {
                 Log.Buffer = false;
             }
+        }
+
+        /// <summary>
+        /// Called when level is unloading.
+        /// </summary>
+        public override void OnLevelUnloading()
+        {
+            Log.Debug(this, "OnLevelUnloading");
+
+            Global.LevelLoaded = false;
+
+            base.OnLevelUnloading();
+        }
+
+        /// <summary>
+        /// Called when released.
+        /// </summary>
+        public override void OnReleased()
+        {
+            Log.Debug(this, "OnReleased");
+
+            Global.LevelLoaded = false;
+
+            base.OnReleased();
         }
     }
 }

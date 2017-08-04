@@ -9,23 +9,6 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer
     internal class HtmlCleaner
     {
         /// <summary>
-        /// Gets or sets a value indicating whether to keep line breaks.
-        /// </summary>
-        /// <value>
-        ///   <c>true</c> if keeping line breaks; otherwise, <c>false</c>.
-        /// </value>
-        public bool KeepNewLines { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="HtmlCleaner"/> class.
-        /// </summary>
-        /// <param name="keepNewLines">if set to <c>true</c> [keep new lines].</param>
-        public HtmlCleaner(bool keepNewLines = false)
-        {
-            this.KeepNewLines = keepNewLines;
-        }
-
-        /// <summary>
         /// Finds line breaks that can be collapsed.
         /// </summary>
         private Regex CollapsibleNewLines = new Regex(@"\r{2,}", RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.ExplicitCapture);
@@ -49,6 +32,23 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer
         /// Finds blocks that should not be cleaned.
         /// </summary>
         private Regex UncleanBlocks = new Regex(@"(?'prespace'\s*)(?'starttag'<\s*(?'tag'script|style)(\s[^>]*)?>)(?'body'.*?)(?'endtag'</\s*\k'tag'(\s[^>]*)?>)(?'postspace'\s*)", RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.ExplicitCapture);
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HtmlCleaner"/> class.
+        /// </summary>
+        /// <param name="keepNewLines">if set to <c>true</c> [keep new lines].</param>
+        public HtmlCleaner(bool keepNewLines = false)
+        {
+            this.KeepNewLines = keepNewLines;
+        }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether to keep line breaks.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if keeping line breaks; otherwise, <c>false</c>.
+        /// </value>
+        public bool KeepNewLines { get; set; }
 
         /// <summary>
         /// Cleans the specified HTML.

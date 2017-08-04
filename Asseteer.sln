@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wtmcsAsseteer", "wtmcsAsseteer\wtmcsAsseteer.csproj", "{0CBBAB6B-999E-49C3-BD9C-F504FB14F9D9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", "{9B12D1E3-75FE-4F3A-B31D-2830184EDAAA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{0CBBAB6B-999E-49C3-BD9C-F504FB14F9D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0CBBAB6B-999E-49C3-BD9C-F504FB14F9D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0CBBAB6B-999E-49C3-BD9C-F504FB14F9D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B12D1E3-75FE-4F3A-B31D-2830184EDAAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B12D1E3-75FE-4F3A-B31D-2830184EDAAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B12D1E3-75FE-4F3A-B31D-2830184EDAAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B12D1E3-75FE-4F3A-B31D-2830184EDAAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

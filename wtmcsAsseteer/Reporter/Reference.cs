@@ -6,12 +6,24 @@
     internal class Reference : ObjectInfo
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Reference" /> struct.
+        /// Initializes a new instance of the <see cref="Reference"/> class.
         /// </summary>
         /// <param name="referenceType">Type of the reference.</param>
-        /// <param name="name">The name.</param>
+        /// <param name="prefab">The prefab.</param>
+        /// <param name="exists">if set to <c>true</c> prefab exists.</param>
+        public Reference(ReferenceTypes referenceType, PrefabInfo prefab, bool exists) : base(prefab)
+        {
+            this.ReferenceType = referenceType;
+            this.Exists = exists;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Reference"/> class.
+        /// </summary>
+        /// <param name="referenceType">Type of the reference.</param>
+        /// <param name="assetInfo">The asset information.</param>
         /// <param name="exists">if set to <c>true</c> [exists].</param>
-        public Reference(ReferenceTypes referenceType, string name, bool exists) : base(name)
+        public Reference(ReferenceTypes referenceType, AssetInfo assetInfo, bool exists) : base(assetInfo)
         {
             this.ReferenceType = referenceType;
             this.Exists = exists;
@@ -40,7 +52,12 @@
             /// <summary>
             /// A variant version of the asset.
             /// </summary>
-            Variation
+            Variation,
+
+            /// <summary>
+            /// A sub-part of the asset-
+            /// </summary>
+            SubAssset
         }
 
         /// <summary>
