@@ -76,8 +76,6 @@
     <Compile Include="Reporter\Reference.cs" />
     <Compile Include="Reporter\TreeAssetInfo.cs" />
     <Compile Include="Reporter\VehicleAssetInfo.cs" />
-    <Compile Include="Reporter\VehicleAssetSubMeshInfo.cs" />
-    <Compile Include="Reporter\VehicleAssetSubVehicleInfo.cs" />
     <Compile Include="Util\Extensions.cs" />
     <Compile Include="Util\FileSystem.cs" />
     <Compile Include="Pieces\Global.cs" />

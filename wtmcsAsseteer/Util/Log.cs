@@ -34,14 +34,14 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer
         public static bool LogNames;
 
         /// <summary>
+        /// True for logging to debug panel.
+        /// </summary>
+        public static bool LogToDebugOutputPanel = true;
+
+        /// <summary>
         /// True for logging to file.
         /// </summary>
         public static bool LogToFile = false;
-
-        /// <summary>
-        /// True for logging to debug panel.
-        /// </summary>
-        public static bool LogToPanel = true;
 
         /// <summary>
         /// The number of lines to buffer.
@@ -75,6 +75,8 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer
             Log.LogALot = FileSystem.Exists(".debug.dev");
 
             bool logDebug = Library.IsDebugBuild || FileSystem.Exists(".debug");
+
+            Log.LogToDebugOutputPanel = logDebug && !Log.LogALot;
 
             if (logDebug)
             {
@@ -404,7 +406,7 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer
 
                 msg.Insert(0, "] ").Insert(0, Library.Name).Insert(0, "[");
 
-                if (level != Level.None && level < Level.Debug && level <= LogLevel && LogToPanel && !LogToFile)
+                if (level != Level.None && level <= Level.Warning && level <= LogLevel && LogToDebugOutputPanel && !LogToFile)
                 {
                     try
                     {

@@ -69,8 +69,6 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer
         /// </summary>
         public void OnDisabled()
         {
-            Global.ModEnabled = false;
-
             Log.Debug(this, "OnDisabled");
             Log.FlushBuffer();
         }
@@ -82,8 +80,6 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer
         {
             Log.Debug(this, "OnEnabled");
             Log.FlushBuffer();
-
-            Global.ModEnabled = true;
         }
 
         /// <summary>
@@ -177,8 +173,6 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer
                                 Log.Error(this, "OnSettingsUI", ex, "DataReportButton");
                             }
                         });
-
-                Global.GameStarted = true;
             }
             catch (Exception ex)
             {
