@@ -121,14 +121,6 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer.Reporter
         public int CombinedWeight => this.TrianglesWeight + this.TextureWeight;
 
         /// <summary>
-        /// Gets the dimensions.
-        /// </summary>
-        /// <value>
-        /// The dimensions.
-        /// </value>
-        public string Dimensions => this.InitializedTriangles ? this.TrianglesSize.x.ToString() + '×' + this.TrianglesSize.y.ToString() + '×' + this.TrianglesSize.y.ToString() : "";
-
-        /// <summary>
         /// Gets a value indicating whether triangle or texture data for these <see cref="AssetValues"/> are initialized.
         /// </summary>
         /// <value>
@@ -207,6 +199,14 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer.Reporter
         /// The count.
         /// </value>
         public int TrianglesCount { get; private set; }
+
+        /// <summary>
+        /// Gets the dimensions.
+        /// </summary>
+        /// <value>
+        /// The dimensions.
+        /// </value>
+        public string TrianglesDimensions => this.InitializedTriangles ? this.TrianglesSize.x.ToString("0.#####") + '×' + this.TrianglesSize.y.ToString("0.#####") + '×' + this.TrianglesSize.z.ToString("0.#####") : "";
 
         /// <summary>
         /// Gets the size of the triangles.

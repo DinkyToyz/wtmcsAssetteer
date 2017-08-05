@@ -190,9 +190,9 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer.Reporter
             info.Add("AssetType", this.AssetType);
             base.FillInfo(info);
 
-            info.Add("Main", this.Main.CombinedWeight, "Triangles", this.Main.TrianglesCount, this.Main.TrianglesSurface, this.Main.TrianglesWeight, "Texture", this.Main.TextureDimensions, this.Main.TextureArea, this.Main.TextureWeight);
-            info.Add("Lod", this.Lod.CombinedWeight, "Triangles", this.Lod.TrianglesCount, this.Lod.TrianglesSurface, this.Lod.TrianglesWeight, "Texture", this.Lod.TextureDimensions, this.Lod.TextureArea, this.Lod.TextureWeight);
-            info.Add("Fallback", this.FallbackLod.CombinedWeight, "Triangles", this.FallbackLod.TrianglesCount, this.FallbackLod.TrianglesSurface, this.FallbackLod.TrianglesWeight, "Texture", this.FallbackLod.TextureDimensions, this.FallbackLod.TextureArea, this.FallbackLod.TextureWeight);
+            info.Add("Main", this.Main.CombinedWeight, "Triangles", this.Main.TrianglesCount, this.Main.TrianglesDimensions, this.Main.TrianglesSurface, this.Main.TrianglesWeight, "Texture", this.Main.TextureDimensions, this.Main.TextureArea, this.Main.TextureWeight);
+            info.Add("Lod", this.Lod.CombinedWeight, "Triangles", this.Lod.TrianglesCount, this.Lod.TrianglesDimensions, this.Lod.TrianglesSurface, this.Lod.TrianglesWeight, "Texture", this.Lod.TextureDimensions, this.Lod.TextureArea, this.Lod.TextureWeight);
+            info.Add("Fallback", this.FallbackLod.CombinedWeight, "Triangles", this.FallbackLod.TrianglesCount, this.FallbackLod.TrianglesDimensions, this.FallbackLod.TrianglesSurface, this.FallbackLod.TrianglesWeight, "Texture", this.FallbackLod.TextureDimensions, this.FallbackLod.TextureArea, this.FallbackLod.TextureWeight);
 
             info.Add("Ref", this.ReferenceCount, this.DependentCount);
         }

@@ -27,24 +27,24 @@
 		<tr class="table-headers">
 			<th colspan=1></th>
 			<th colspan=3>Asset Counts</th>
-			<th colspan=14>Mean Values for Built-Ins</th>
+			<th colspan=10>Mean Values for Built-Ins</th>
 		</tr>
 		<tr class="header-headers">
 			<th colspan=1></th>
 			<th colspan=3></th>
-			<th colspan=7>Main</th>
-			<th colspan=7>Lod</th></tr>
+			<th colspan=5>Main</th>
+			<th colspan=5>Lod</th></tr>
 		<tr class="header-headers">
 			<th colspan=1></th>
 			<th colspan=3></th>
-			<th colspan=1>Combined</th><th colspan=3>Triangles</th><th colspan=3>Textures</th>
-			<th colspan=1>Combined</th><th colspan=3>Triangles</th><th colspan=3>Textures</th>
+			<th colspan=1>Combined</th><th colspan=2>Triangles</th><th colspan=2>Textures</th>
+			<th colspan=1>Combined</th><th colspan=2>Triangles</th><th colspan=2>Textures</th>
 		</tr>
 		<tr class="column-headers">
 			<th class="txt">Type</th>
 			<th class="num">All</th><th class="num">Built-In</th><th class="num">Custom</th>
-			<th class="num">Weight</th><th class="num">Count</th><th class="num">Surface</th><th class="num">Weight</th><th class="num">Dimensions</th><th class="num">Area</th><th class="num">Weight</th>
-			<th class="num">Weight</th><th class="num">Count</th><th class="num">Surface</th><th class="num">Weight</th><th class="num">Dimensions</th><th class="num">Area</th><th class="num">Weight</th>
+			<th class="num">Weight</th><th class="num">Count</th><th class="num">Weight</th><th class="num">Dimensions</th><th class="num">Weight</th>
+			<th class="num">Weight</th><th class="num">Count</th><th class="num">Weight</th><th class="num">Dimensions</th><th class="num">Weight</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -58,17 +58,13 @@
 					<td class="txt"><#= sizes.CustomAssetCount #></td>
 					<td class="num"><# if (sizes.Main.InitializedTriangles) { #><#= sizes.Main.CombinedWeight #><# } #></td>
 					<td class="num"><# if (sizes.Main.InitializedTriangles) { #><#= sizes.Main.TrianglesCount #><# } #></td>
-					<td class="num"><# if (sizes.Main.InitializedTriangles) { #><#= sizes.Main.TrianglesSurfaceRounded #><# } #></td>
 					<td class="num"><# if (sizes.Main.InitializedTriangles) { #><#= sizes.Main.TrianglesWeight #><# } #></td>
 					<td class="dim"><# if (sizes.Main.InitializedTextures) { #><#= sizes.Main.TexturesDimensions #><# } #></td>
-					<td class="num"><# if (sizes.Main.InitializedTextures) { #><#= sizes.Main.TexturesArea #><# } #></td>
 					<td class="num"><# if (sizes.Main.InitializedBoth) { #><#= sizes.Main.TexturesWeight #><# } #></td>
 					<td class="num"><# if (sizes.Lod.InitializedTriangles) { #><#= sizes.Lod.CombinedWeight #><# } #></td>
 					<td class="num"><# if (sizes.Lod.InitializedTriangles) { #><#= sizes.Lod.TrianglesCount #><# } #></td>
-					<td class="num"><# if (sizes.Lod.InitializedTriangles) { #><#= sizes.Lod.TrianglesSurfaceRounded #><# } #></td>
 					<td class="num"><# if (sizes.Lod.InitializedTriangles) { #><#= sizes.Lod.TrianglesWeight #><# } #></td>
 					<td class="dim"><# if (sizes.Lod.InitializedTextures) { #><#= sizes.Lod.TexturesDimensions #><# } #></td>
-					<td class="num"><# if (sizes.Lod.InitializedTextures) { #><#= sizes.Lod.TexturesArea #><# } #></td>
 					<td class="num"><# if (sizes.Lod.InitializedBoth) { #><#= sizes.Lod.TexturesWeight #><# } #></td>
 				</tr><#
 			}
@@ -79,17 +75,17 @@
 
 <table class="main-table table-autosort table-autofilter table-filtered-rowcount:main-table-visible-rowspan table-rowcount:main-table-total-rowspan table-autostripe table-stripeclass:table-row-odd">
 	<thead>
-		<tr class="table-headers"><th colspan=22>Assets (<span id="main-table-visible-rowspan"><#= AssetCount #></span>/<span id="main-table-total-rowspan"><#= AssetCount #></span>)</th></tr>
+		<tr class="table-headers"><th colspan=18>Assets (<span id="main-table-visible-rowspan"><#= AssetCount #></span>/<span id="main-table-total-rowspan"><#= AssetCount #></span>)</th></tr>
 		<tr class="header-headers">
 			<th colspan=4></th>
-			<th colspan=7>Main</th>
-			<th colspan=7>Lod</th>
+			<th colspan=5>Main</th>
+			<th colspan=5>Lod</th>
 			<th colspan=4></th>
 		</tr>
 		<tr class="header-headers">
 			<th colspan=4></th>
-			<th colspan=1>Combined</th><th colspan=3>Triangles</th><th colspan=3>Textures</th>
-			<th colspan=1>Combined</th><th colspan=3>Triangles</th><th colspan=3>Textures</th>
+			<th colspan=1>Combined</th><th colspan=2>Triangles</th><th colspan=2>Textures</th>
+			<th colspan=1>Combined</th><th colspan=2>Triangles</th><th colspan=2>Textures</th>
 			<th colspan=2>
 				Usages
 				<a class="showhide" id="dep-text-hide">&#9664;</a>
@@ -106,8 +102,8 @@
 			<th class="txt table-sortable:alphanumeric table-filterable">Type<span/></th>
 			<th class="txt table-sortable:alphanumeric table-filterable">Category<span/></th>
 			<th class="txt table-sortable:alphanumeric">Title</th>
-			<th class="num table-sortable:numeric">Weight</th><th class="num table-sortable:numeric">Count</th><th class="num table-sortable:numeric">Surface</th><th class="num table-sortable:numeric">Weight</th><th class="num table-sortable:alphanumeric">Dimensions</th><th class="num table-sortable:numeric">Area</th><th class="num table-sortable:numeric">Weight</th>
-			<th class="num table-sortable:numeric">Weight</th><th class="num table-sortable:numeric">Count</th><th class="num table-sortable:numeric">Surface</th><th class="num table-sortable:numeric">Weight</th><th class="num table-sortable:alphanumeric">Dimensions</th><th class="num table-sortable:numeric">Area</th><th class="num table-sortable:numeric">Weight</th>
+			<th class="num table-sortable:numeric">Weight</th><th class="num table-sortable:numeric">Count</th><th class="num table-sortable:numeric">Weight</th><th class="num table-sortable:alphanumeric">Dimensions</th><th class="num table-sortable:numeric">Weight</th>
+			<th class="num table-sortable:numeric">Weight</th><th class="num table-sortable:numeric">Count</th><th class="num table-sortable:numeric">Weight</th><th class="num table-sortable:alphanumeric">Dimensions</th><th class="num table-sortable:numeric">Weight</th>
 			<th class="num table-sortable:numeric">Count</th><th class="txt table-sortable:alphanumeric">Assets</th>
 			<th class="num table-sortable:numeric">Count</th><th class="txt table-sortable:alphanumeric">Assets</th>
 		</tr>
@@ -138,17 +134,13 @@
 					#></td>
 					<td class=num><# if (asset.Main.InitializedTriangles) { #><#= asset.Main.CombinedWeight #><# } #></td>
 					<td class=num><# if (asset.Main.InitializedTriangles) { #><#= asset.Main.TrianglesCount #><# } #></td>
-					<td class=num><# if (asset.Main.InitializedTriangles) { #><#= asset.Main.TrianglesSurfaceRounded #><# } #></td>
 					<td class=num><# if (asset.Main.InitializedTriangles) { #><#= asset.Main.TrianglesWeight #><# } #></td>
 					<td class=dim><# if (asset.Main.InitializedTexture) { #><#= asset.Main.TextureDimensions #><# } #></td>
-					<td class=num><# if (asset.Main.InitializedTexture) { #><#= asset.Main.TextureArea #><# } #></td>
 					<td class=num><# if (asset.Main.InitializedTexture) { #><#= asset.Main.TextureWeight #><# } #></td>
 					<td class=num><# if (asset.FallbackLod.InitializedBoth) { #><#= asset.FallbackLod.CombinedWeight #><# } #></td>
 					<td class=num><# if (asset.Lod.InitializedTriangles) { #><#= asset.Lod.TrianglesCount #><# } #></td>
-					<td class=num><# if (asset.Lod.InitializedTriangles) { #><#= asset.Lod.TrianglesSurfaceRounded #><# } #></td>
 					<td class=num><# if (asset.FallbackLod.InitializedTriangles) { #><#= asset.FallbackLod.TrianglesWeight #><# } #></td>
 					<td class=dim><# if (asset.Lod.InitializedTexture) { #><#= asset.Lod.TextureDimensions #><# } #></td>
-					<td class=num><# if (asset.Lod.InitializedTexture) { #><#= asset.Lod.TextureArea #><# } #></td>
 					<td class=num><# if (asset.FallbackLod.InitializedBoth) { #><#= asset.FallbackLod.TextureWeight #><# } #></td>
 					<td class=num><#= asset.DependentCount #></td>
 					<td class=txt><#

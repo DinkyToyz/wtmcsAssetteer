@@ -104,6 +104,8 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer.Reporter
 
             VehicleInfo vehicle = (VehicleInfo)prefab;
 
+            // todo: Recursion protection!
+
             // todo: VehicleInfo.MeshInfo[] m_subMeshes;
             /*
             if (vehicle.m_subMeshes != null)

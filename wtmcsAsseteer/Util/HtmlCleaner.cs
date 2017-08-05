@@ -19,6 +19,11 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer
         private Regex CollapsibleSpace = new Regex(@"[^\S\r]{2,}", RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.ExplicitCapture);
 
         /// <summary>
+        /// Find comments.
+        /// </summary>
+        private Regex Comments = new Regex(@"<!--.*?-->", RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.ExplicitCapture);
+
+        /// <summary>
         /// Finds the document header.
         /// </summary>
         private Regex DocHeader = new Regex(@"^\s*(?'tag'<[?!].*?>)\s*", RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.ExplicitCapture);
@@ -126,6 +131,7 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer
                 html = html.Replace('\r', ' ');
             }
 
+            html = this.Comments.Replace(html, "");
             html = this.RemovableWhiteSpace.Replace(html, "");
             html = this.CollapsibleSpace.Replace(html, " ");
             html = this.CollapsibleNewLines.Replace(html, "\r");

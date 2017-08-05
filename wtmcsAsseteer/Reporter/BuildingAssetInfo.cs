@@ -223,6 +223,7 @@ namespace WhatThe.Mods.CitiesSkylines.Asseteer.Reporter
                         if (subAsset.Initialized)
                         {
                             this.Add(subAsset);
+                            // todo: Add references.
                         }
                     }
                 }
